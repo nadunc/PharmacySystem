@@ -19,6 +19,11 @@ app.get('/app', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
+app.get('/app/starter', (req, res) => {
+    res.sendFile(__dirname + '/public/starter.html');
+});
+
+
 
 
 app.listen(3000, err => {
