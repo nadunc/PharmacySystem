@@ -4,18 +4,22 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+
+require('./models/user.model');
+
+
 const app = express();
 
 app.use(bodyParser.json());
 app.use('/app', express.static(__dirname + '/public'));
 
-
-mongoose.connect('mongodb://localhost:27017/pharmacy', err => {
-    if (err) {
-        console.log(err);
-        // process.exit(1);
-    }
-});
+//
+// mongoose.connect('mongodb://localhost:27017/pharmacy', err => {
+//     if (err) {
+//         console.log(err);
+//         // process.exit(1);
+//     }
+// });
 
 
 
