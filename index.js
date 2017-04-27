@@ -4,12 +4,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+mongoose.Promise = global.Promise;
+
+require('./models/user.model');
+
+const UserRouter = require('./routes/user.route');
+
 const app = express();
 
 app.use(bodyParser.json());
+
 app.use('/app', express.static(__dirname + '/public'));
 
-
+//
 mongoose.connect('mongodb://localhost:27017/pharmacy', err => {
     if (err) {
         console.log(err);
@@ -42,6 +49,7 @@ app.get('/app/starter', (req, res) => {
 });
 
 
+app.use('/users', UserRouter);
 
 
 app.listen(3000, err => {
