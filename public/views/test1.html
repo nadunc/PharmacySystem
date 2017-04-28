@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Test 1
-</body>
-</html>
+<div ng-controller="TestController">
+    <span>{{myRoute.routes['/test1'].message}}</span>
+
+    <ul>
+        <li ng-repeat="user in users">{{ user.firstName }}</li>
+    </ul>
+</div>
