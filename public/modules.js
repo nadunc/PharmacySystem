@@ -7,17 +7,19 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when("/test1", {
             templateUrl: "views/test1.html",
-            controller: "TestController",
+            controller: "UserController",
             message: "Test 1"
 
         })
         .when("/test2", {
             templateUrl: "views/test2.html",
-            controller: "TestController",
+            controller: "UserController",
             message: "Test 2"
 
 
         }).when("/test3", {
-        templateUrl: "login.html"
-    });
+            templateUrl: "login.html"
+        }).otherwise({
+            templateUrl: "404.html"
+        });
 });
