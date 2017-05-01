@@ -262,14 +262,31 @@ desired effect
                 <li class="active"><a href="#/test1"><i class="fa fa-link"></i> <span>Link</span></a></li>
                 <li><a href="#/test2"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+                    <a href="#">
+                        <i class="fa fa-link"></i>
+                        <span>Multilevel</span>
                         <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="#">Link in level 2</a></li>
                         <li><a href="#">Link in level 2</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="">
+                        <i class="fa fa-link"></i>
+                        <span>Drugs</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#/drugs/all">All Drugs</a></li>
+                        <li><a href="#/drugs/add">Add Drug</a></li>
+                        <li><a href="#/drugs/add">Edit Drug</a></li>
                     </ul>
                 </li>
             </ul>
@@ -280,25 +297,8 @@ desired effect
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Page Header
-                <small>Optional description</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">Here</li>
-            </ol>
-        </section>
+        <div ng-view></div>
 
-        <!-- Main content -->
-        <section class="content">
-            <div ng-view></div>
-            <!-- Your Page Content Here -->
-
-        </section>
-        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
@@ -407,9 +407,15 @@ desired effect
 <script src="assets/js/menu.js"></script>
 <script src="assets/js/angular.js"></script>
 <script src="assets/js/angular-route.js"></script>
+<script src="assets/js/number-spinner.js"></script>
+
 <script src="modules.js"></script>
+
 <script src="services/user.service.js"></script>
 <script src="controllers/user.controller.js"></script>
+
+<script src="services/drug.service.js"></script>
+<script src="controllers/drug.controller.js"></script>
 
 </body>
 </html>

@@ -16,10 +16,24 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             controller: "UserController",
             message: "Test 2"
 
-
-        }).when("/test3", {
+        })
+        .when("/test3", {
             templateUrl: "login.html"
-        }).otherwise({
+        })
+        .when("/drugs/all",{
+            templateUrl: "views/drug_list.html",
+            controller: "DrugController"
+        })
+        .when("/drugs/add",{
+        templateUrl: "views/drug_add.html",
+        controller: "DrugController"
+    })
+
+
+        .when("/", {
+
+        })
+        .otherwise({
             templateUrl: "404.html"
         });
 });

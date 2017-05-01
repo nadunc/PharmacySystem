@@ -7,8 +7,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 require('./models/user.model');
+require('./models/drug.model');
 
 const UserRouter = require('./routes/user.route');
+const DrugRouter = require('./routes/drug.route');
 
 const app = express();
 
@@ -50,6 +52,7 @@ app.get('/app/login', (req, res) => {
 
 
 app.use('/users', UserRouter);
+app.use('/drugs', DrugRouter);
 
 
 app.listen(3000, err => {
