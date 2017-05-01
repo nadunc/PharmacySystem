@@ -31,7 +31,8 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
 
 
         .when("/", {
-
+            templateUrl: "views/drug_list.html",
+            controller: "DrugController"
         })
         .otherwise({
             templateUrl: "404.html"

@@ -3,6 +3,10 @@ $(document).on('click', '.number-spinner button', function () {
         oldValue = btn.closest('.number-spinner').find('input').val().trim(),
         newVal = 0;
 
+    if(!isNumeric(oldValue)){
+        oldValue = 0;
+    }
+
     if (btn.attr('data-dir') == 'up') {
         newVal = parseInt(oldValue) + 1;
     } else {
@@ -34,4 +38,8 @@ function isNumericKey(evt)
         && (charCode < 48 || charCode > 57))
         return true;
     return false;
+}
+
+function isNumeric(str) {
+    return /^\+?(0|[1-9]\d*)$/.test(str);
 }
