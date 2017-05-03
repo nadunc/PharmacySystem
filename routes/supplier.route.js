@@ -5,14 +5,14 @@ const mongoose = require('mongoose');
 
 mongoose.set('debug', false);
 
-const DrugModel = mongoose.model('Drug');
+const SupplierModel = mongoose.model('Supplier');
 
 const Router = express.Router();
 
 
 Router.get('/', (req, res) => {
-    DrugModel.find().then(function (drugs) {
-        res.json(drugs);
+    SupplierModel.find().then(function (suppliers) {
+        res.json(suppliers);
     }).catch(function (err) {
         console.error(err);
         res.sendStatus(500);
@@ -20,8 +20,8 @@ Router.get('/', (req, res) => {
 });
 
 Router.post('/', (req, res) => {
-    const drug = new DrugModel(req.body);
-    drug.save(function (err,drug) {
+    const supplier = new SupplierModel(req.body);
+    supplier.save(function (err,supplier) {
         if(err){
             console.error(err);
             res.json({success:false});
@@ -30,12 +30,6 @@ Router.post('/', (req, res) => {
         }
     });
 
-    // drug.save().then(function (drug) {
-    //     res.json(drug);
-    // }).catch(function (err) {
-    //     console.error(err);
-    //     res.sendStatus(500);
-    // });
 });
 
 module.exports = Router;

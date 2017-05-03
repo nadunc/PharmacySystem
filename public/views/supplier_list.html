@@ -1,0 +1,132 @@
+<div ng-controller="SupplierController">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Suppliers
+            <small>Optional description</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Data Table With Full Features</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="tableSupplierList" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="supplier in suppliers">
+                                <td>{{ supplier.name }}</td>
+                                <td>{{ supplier.phone }}</td>
+                                <td>{{ supplier.address }}</td>
+                                <td>{{ supplier.email }}</td>
+
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                            </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+
+            <div class="col-xs-12 col-sm-10 col-md-4">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Data Table With Full Features</h3>
+                    </div><!-- /.box-header -->
+
+                    <form ng-submit="addSupplier(supplier)">
+                        <div class="box-body">
+
+                            <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-check"></i> Success!</h4>
+                                <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
+                                <!--{{ successMsg }}-->
+                            </div>
+
+                            <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-check"></i> Error!</h4>
+                                <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
+                                <!--{{ successMsg }}-->
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="input-name" class="control-label">Name</label>
+
+
+                                <input type="text" class="form-control" id="input-name" placeholder="Name"
+                                       ng-model="supplier.name">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-phone" class="control-label">Phone</label>
+
+
+                                <input type="text" class="form-control" id="input-phone" placeholder="Phone"
+                                       ng-model="supplier.phone">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-address" class="control-label">Address</label>
+
+
+                                <textarea class="form-control" id="input-address" placeholder="Address"
+                                       ng-model="supplier.address"></textarea>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input-email" class="control-label">Email</label>
+
+
+                                <input type="email" class="form-control" id="input-email" placeholder="Email"
+                                       ng-model="supplier.email">
+
+                            </div>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-info pull-right">Add Supplier</button>
+                        </div>
+                        <!-- /.box-footer -->
+                    </form>
+
+                </div><!-- /.box -->
+            </div>
+
+        </div>
+    </section><!-- /.content -->
+</div>
