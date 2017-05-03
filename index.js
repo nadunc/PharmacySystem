@@ -6,11 +6,15 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-require('./models/user.model');
 require('./models/drug.model');
+require('./models/inventoryItem.model');
+require('./models/stock.model');
+require('./models/supplier.model');
+require('./models/user.model');
 
-const UserRouter = require('./routes/user.route');
 const DrugRouter = require('./routes/drug.route');
+const SupplierRouter = require('./routes/supplier.route');
+const UserRouter = require('./routes/user.route');
 
 const app = express();
 
@@ -51,8 +55,9 @@ app.get('/app/login', (req, res) => {
 // });
 
 
-app.use('/users', UserRouter);
 app.use('/drugs', DrugRouter);
+app.use('/suppliers', SupplierRouter);
+app.use('/users', UserRouter);
 
 
 app.listen(3000, err => {

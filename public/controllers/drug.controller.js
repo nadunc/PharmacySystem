@@ -9,9 +9,16 @@ pharmacyApp.controller('DrugController', ['$scope', '$route', '$http', 'DrugServ
     getDrugs();
 
     $scope.addDrug = function (drug) {
-        DrugService.add(drug).then(function () {
-            getDrugs();
-            drug = {};
+        DrugService.add(drug).then(function (data) {
+            if(data.success){
+                $scope.errorMsg = false;
+                $scope.successMsg = true;
+            }else{
+                $scope.successMsg = false;
+                $scope.errorMsg = true;
+            }
+            // getDrugs();
+            $scope.drug = {};
         })
     };
 }]);
