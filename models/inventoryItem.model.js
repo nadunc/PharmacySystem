@@ -9,7 +9,7 @@ const InventoryItemSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Drug'
     },
-    stockId: {
+    supplierId: {
         type: Schema.Types.ObjectId,
         ref: 'Stock'
     },
@@ -27,6 +27,10 @@ const InventoryItemSchema = new Schema({
     },
     expiryDate: {
         type: String,
+        required: true
+    },
+    buyingPrice:{
+        type: Number,
         required: true
     }
 });

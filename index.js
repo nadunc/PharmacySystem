@@ -8,11 +8,11 @@ mongoose.Promise = global.Promise;
 
 require('./models/drug.model');
 require('./models/inventoryItem.model');
-require('./models/stock.model');
 require('./models/supplier.model');
 require('./models/user.model');
 
 const DrugRouter = require('./routes/drug.route');
+const InventoryItemRouter = require('./routes/inventoryItem.route');
 const SupplierRouter = require('./routes/supplier.route');
 const UserRouter = require('./routes/user.route');
 
@@ -56,6 +56,7 @@ app.get('/app/login', (req, res) => {
 
 
 app.use('/drugs', DrugRouter);
+app.use('/inventory', InventoryItemRouter);
 app.use('/suppliers', SupplierRouter);
 app.use('/users', UserRouter);
 

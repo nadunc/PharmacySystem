@@ -33,6 +33,15 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             controller: "SupplierController"
         })
 
+        .when("/inventory/all", {
+            templateUrl: "views/inventory_item_list.html",
+            controller: "InventoryItemController"
+        })
+        .when("/inventory/add", {
+            templateUrl: "views/inventory_item_add.html",
+            controller: "InventoryItemController"
+        })
+
 
 
         .when("/", {

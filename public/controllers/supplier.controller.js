@@ -13,12 +13,13 @@ pharmacyApp.controller('SupplierController', ['$scope', '$route', '$http', 'Supp
             if(data.success){
                 $scope.errorMsg = false;
                 $scope.successMsg = true;
+                $scope.supplier = {};
+
             }else{
                 $scope.successMsg = false;
                 $scope.errorMsg = true;
             }
             getSuppliers();
-            $scope.supplier = {};
         })
     };
 }]);
