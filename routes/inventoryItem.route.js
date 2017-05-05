@@ -11,7 +11,7 @@ const Router = express.Router();
 
 
 Router.get('/', (req, res) => {
-    InventoryItemModel.find().then(function (inventoryItems) {
+    InventoryItemModel.find().populate('drug').populate('supplier').exec().then(function (inventoryItems) {
         res.json(inventoryItems);
     }).catch(function (err) {
         console.error(err);

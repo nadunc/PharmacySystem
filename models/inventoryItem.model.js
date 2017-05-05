@@ -5,13 +5,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const InventoryItemSchema = new Schema({
-    drugId: {
+    drug: {
         type: Schema.Types.ObjectId,
         ref: 'Drug'
     },
-    supplierId: {
+    supplier: {
         type: Schema.Types.ObjectId,
-        ref: 'Stock'
+        ref: 'Supplier'
     },
     batchNo: {
         type: Number,
