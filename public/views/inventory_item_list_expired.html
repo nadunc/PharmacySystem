@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Inventory
+            Expired Inventory Items
             <small>Optional description</small>
         </h1>
         <ol class="breadcrumb">
@@ -36,7 +36,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="inventoryItem in inventoryItems" class="{{ inventoryItem.status }}">
+                                <tr ng-repeat="inventoryItem in expiredInventoryItems">
                                     <td>{{ inventoryItem.drug.tradeName }} <span class="text-muted" style="margin-left: 10px; font-size: 0.9em">({{ inventoryItem.drug.className }})</span></td>
                                     <td>{{ inventoryItem.supplier.name }}</td>
                                     <td>{{ inventoryItem.batchNo }}</td>

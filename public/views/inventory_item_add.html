@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Add Drugs
+            Add Inventory Item
             <small>Optional description</small>
         </h1>
         <ol class="breadcrumb">
@@ -42,8 +42,9 @@
                                 <label for="input-drug-id" class="col-sm-3 control-label">Drug</label>
 
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="input-drug-id" ng-model="inventoryItem.drug">
-                                        <option ng-repeat="drug in drugs" value="{{ drug._id }}">{{ drug.tradeName }}</option>
+                                    <select class="form-control select2" id="input-drug-id" ng-model="inventoryItem.drug">
+                                        <option ng-repeat="drug in drugs" value="{{ drug._id }}">{{ drug.tradeName }}
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -52,8 +53,11 @@
                                 <label for="input-supplier-id" class="col-sm-3 control-label">Supplier</label>
 
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="input-supplier-id" ng-model="inventoryItem.supplier">
-                                        <option ng-repeat="supplier in suppliers" value="{{ supplier._id }}">{{ supplier.name }}</option>
+                                    <select class="form-control select2" id="input-supplier-id"
+                                            ng-model="inventoryItem.supplier">
+                                        <option ng-repeat="supplier in suppliers" value="{{ supplier._id }}">{{
+                                            supplier.name }}
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -63,7 +67,8 @@
                                 <label for="input-batch-number" class="col-sm-3 control-label">Batch Number</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="input-batch-number" placeholder="Batch Number" ng-model="inventoryItem.batchNo">
+                                    <input type="text" class="form-control" id="input-batch-number"
+                                           placeholder="Batch Number" ng-model="inventoryItem.batchNo">
                                 </div>
                             </div>
 
@@ -71,31 +76,77 @@
                                 <label for="input-received-qty" class="col-sm-3 control-label">Recieved Quantity</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="input-received-qty" placeholder="Received Quantity" ng-model="inventoryItem.receivedQty">
+                                    <input type="text" class="form-control" id="input-received-qty"
+                                           placeholder="Received Quantity" ng-model="inventoryItem.receivedQty">
                                 </div>
                             </div>
+
+                            <!--<div class="form-group">-->
+                            <!--<label for="input-expiry-date" class="col-sm-3 control-label">Expiry Date</label>-->
+
+                            <!--<div class="col-sm-9">-->
+                            <!--<input type="text" class="form-control" id="input-expiry-date" placeholder="Expiry Date" ng-model="inventoryItem.expiryDate">-->
+                            <!--</div>-->
+                            <!--</div>-->
 
                             <div class="form-group">
                                 <label for="input-expiry-date" class="col-sm-3 control-label">Expiry Date</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="input-expiry-date" placeholder="Expiry Date" ng-model="inventoryItem.expiryDate">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" id="input-expiry-date"
+                                               placeholder="Expiry Date" ng-model="inventoryItem.expiryDate">
+                                    </div>
                                 </div>
                             </div>
+
+                            <!--<div class="form-group">-->
+                                <!--<label for="input-manufact-date" class="col-sm-3 control-label">Manufactured-->
+                                    <!--Date</label>-->
+
+                                <!--<div class="col-sm-9">-->
+                                    <!--<input type="text" class="form-control" id="input-manufact-date"-->
+                                           <!--placeholder="Manufactured Date" ng-model="inventoryItem.manufactureDate">-->
+                                <!--</div>-->
+                            <!--</div>-->
 
                             <div class="form-group">
                                 <label for="input-manufact-date" class="col-sm-3 control-label">Manufactured Date</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="input-manufact-date" placeholder="Manufactured Date" ng-model="inventoryItem.manufactureDate">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" id="input-manufact-date"
+                                               placeholder="Manufactured Date" ng-model="inventoryItem.manufactureDate">
+                                    </div>
                                 </div>
                             </div>
+
+                            <!--<div class="form-group">-->
+                                <!--<label for="input-buying-date" class="col-sm-3 control-label">Buying Date</label>-->
+
+                                <!--<div class="col-sm-9">-->
+                                    <!--<input type="text" class="form-control" id="input-buying-date"-->
+                                           <!--placeholder="Buying Date" ng-model="inventoryItem.buyingDate">-->
+                                <!--</div>-->
+                            <!--</div>-->
 
                             <div class="form-group">
                                 <label for="input-buying-date" class="col-sm-3 control-label">Buying Date</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="input-buying-date" placeholder="Buying Date" ng-model="inventoryItem.buyingDate">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" id="input-buying-date"
+                                               placeholder="Buying Date" ng-model="inventoryItem.buyingDate">
+                                    </div>
                                 </div>
                             </div>
 
@@ -103,7 +154,8 @@
                                 <label for="input-buying-price" class="col-sm-3 control-label">Buying Price</label>
 
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="input-buying-price" placeholder="Buying Price" ng-model="inventoryItem.buyingPrice">
+                                    <input type="text" class="form-control" id="input-buying-price"
+                                           placeholder="Buying Price" ng-model="inventoryItem.buyingPrice">
                                 </div>
                             </div>
 
@@ -122,3 +174,11 @@
     </section><!-- /.content -->
 
 </div>
+
+<script>
+    $(".select2").select2();
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
+</script>

@@ -3,10 +3,27 @@ pharmacyApp.controller('InventoryItemController', ['$scope', '$route', '$http', 
     function getInventoryItems() {
         InventoryItemService.get().then(function (inventoryItems) {
             $scope.inventoryItems = inventoryItems;
+
+            // var i =0;
+            // angular.forEach($scope.inventoryItems, function(eachObj) {
+            //     i+=1;
+            //     eachObj.status = 'warning';
+            // });
+
+            // $scope.inventoryItems = inventoryItems;
         })
     }
 
     getInventoryItems();
+
+    function getExpiredInventoryItems() {
+        InventoryItemService.getExpired().then(function (inventoryItems) {
+            $scope.expiredInventoryItems = inventoryItems;
+        })
+    }
+
+    getExpiredInventoryItems();
+
 
     function getDrugs() {
         DrugService.get().then(function (drugs) {
