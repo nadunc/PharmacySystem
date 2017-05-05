@@ -35,7 +35,19 @@ Router.post('/', (req, res) => {
 
 
 Router.get('/expired', function (req, res) {
-    InventoryItemModel.find({expiryDate: { $lte: new Date() } }).populate('drug').then(function (inventoryItems) {
+    InventoryItemModel.find({expiryDate: { $lte: new Date() } }).populate('drug').populate('supplier').exec().then(function (inventoryItems) {
+        res.json(inventoryItems);
+    }).catch(function (err) {
+        console.error(err);
+        res.sendStatus(500)
+    });
+});
+
+Router.get('/expiring/:days', function (req, res) {
+    var checkingDate = new Date();
+    checkingDate.setTime( checkingDate.getTime() + (req.params.days * 86400000));
+
+    InventoryItemModel.find({expiryDate: { $lte: checkingDate } }).populate('drug').populate('supplier').exec().then(function (inventoryItems) {
         res.json(inventoryItems);
     }).catch(function (err) {
         console.error(err);
