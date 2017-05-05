@@ -46,16 +46,15 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/inventory_item_add.html",
             controller: "InventoryItemController"
         })
-        .when("/inventory/expired", {
-            templateUrl: "views/inventory_item_list_expired.html",
+        .when("/inventory/expire", {
+            templateUrl: "views/inventory_item_list_expiring.html",
             controller: "InventoryItemController"
         })
 
 
 
         .when("/", {
-            templateUrl: "views/drug_list.html",
-            controller: "DrugController"
+            templateUrl: "views/dashboard.html"
         })
 
         .otherwise({
