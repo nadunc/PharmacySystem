@@ -1,0 +1,180 @@
+<div ng-controller="PrescriptionController">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Prescription Info
+            <small>Dispense drugs for the patients</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="#/prescriptions">Dispense</a></li>
+            <li class="active">Prescription</li>
+        </ol>
+    </section>
+
+    <br>
+    <br>
+    <!-- Main content -->
+    <section class="content">
+      <form class="form-inline">
+  
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Enter Patient ID">
+
+  <button type="search" class="btn btn-primary">Search</button>
+    </form>
+
+    <br>
+    <div class="row">
+        
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Dispense Drugs</h3>
+                </div>
+
+                <!-- /.box-header -->
+
+                <div class="box-body">
+                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+                 	<br>
+                 	<div class="col-sm-6" align = "left">
+
+                                <div id="example1_filter" class="dataTables_filter">
+                                    <label>Search : </label> <label> </label> <input id="pid" onkeyup="myFunction()"  type="search" class="form-control input-sm" placeholder="Enter Prescription ID" aria-controls="example1">
+                                    
+                                    
+                                </div>
+
+                            </div>
+
+                     <div class="row">
+
+
+                            <div class="col-sm-12">
+                            	<br>
+                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead>
+                                        <tr role="row">
+
+                                            <th>Drug Description</th>
+                                            <th>Dosage</th>
+                                            <th>Frequency</th>
+                                            <th>Period</th>
+                                            <th>Quantity</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr ng-repeat="prescription in prescriptions">
+
+                                            <td>{{ prescription.description }}</td>
+                                            <td>{{ prescription.dosage }}</td>
+                                            <td>{{ prescription.frequency }}</td>
+                                            <td>{{ prescription.period }}</td>
+                                            <td>{{ prescription.quantity }}</td>
+                                        </tr>
+
+                    
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+                        </div>
+                        
+
+                </div>
+                <!-- /.box-body -->
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalEdit">Dispense</button>
+                <a href="#/prescriptions" class="btn btn-warning">Back</a>
+            </div><!-- /.box -->
+        </div>
+       
+      
+    </div>
+  
+</section><!-- /.content -->
+
+</div>
+
+
+ <div class="modal fade" id="myModalEdit" role="dialog">
+   <div class="modal-dialog">
+
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title">Bill Payment</h4>
+       </div>
+       <div class="modal-body">
+         <form class="form-horizontal">
+            <div class="form-group">
+              <table id="example2" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead >
+                                        <tr role="row">
+
+                                            <th>Drug Description</th>
+                                            <th>Price</th>
+                                            
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr>
+
+                                            <td>Diclofenac</td>
+                                            <td>Rs.300</td>
+                                            
+                                        
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>Adiflam</td>
+                                            <td>Rs.120</td>
+                                            
+                                        
+                                        </tr>
+
+                                        <tr >
+
+                                            <td class="bg-info">TOTAL AMOUNT</td>
+                                            <td class="bg-info">Rs.420</td>
+                                            
+                                        
+                                        </tr>
+
+                    
+                                    </tbody>
+
+
+                                </table>
+            </div>
+
+
+           
+       </form>
+
+       </div>
+       <div class="modal-footer">
+       
+         <button type="submit" class="btn btn-danger">Confirm</button>
+           
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+       </div>
+     </div>
+
+   </div>
+ </div>
+
+
+ 
+
