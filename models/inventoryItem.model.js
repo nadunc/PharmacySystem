@@ -17,7 +17,7 @@ const InventoryItemSchema = new Schema({
         type: Number,
         required: true
     },
-    recievedQty: {
+    receivedQty: {
         type: Number,
         required: true
     },
@@ -25,8 +25,16 @@ const InventoryItemSchema = new Schema({
         type: Number,
         required: true
     },
+    manufactureDate: {
+        type: Date,
+        required: true
+    },
     expiryDate: {
-        type: String,
+        type: Date,
+        required: true
+    },
+    buyingDate: {
+        type: Date,
         required: true
     },
     buyingPrice:{

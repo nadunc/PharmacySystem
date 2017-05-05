@@ -21,7 +21,7 @@ Router.get('/', (req, res) => {
 
 Router.post('/', (req, res) => {
     const inventoryItem = new InventoryItemModel(req.body);
-    inventoryItem.availableQty = inventoryItem.recievedQty;
+    inventoryItem.availableQty = inventoryItem.receivedQty;
     inventoryItem.save(function (err,inventoryItem) {
         if(err){
             console.error(err);
@@ -31,6 +31,16 @@ Router.post('/', (req, res) => {
         }
     });
 
+});
+
+
+Router.get('/expired', function (req, res) {
+    InventoryItemModel.find({expiryDate: { $lte: new Date() } }).populate('drug').then(function (inventoryItems) {
+        res.json(inventoryItems);
+    }).catch(function (err) {
+        console.error(err);
+        res.sendStatus(500)
+    });
 });
 
 module.exports = Router;
