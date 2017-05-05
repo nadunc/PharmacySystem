@@ -5,14 +5,15 @@ const mongoose = require('mongoose');
 
 mongoose.set('debug', false);
 
-const InventoryItemModel = mongoose.model('InventoryItem');
+const PrescriptionModel = mongoose.model('Prescription');
 
 const Router = express.Router();
 
 
+
 Router.get('/', (req, res) => {
-    InventoryItemModel.find().populate('drug').populate('supplier').exec().then(function (inventoryItems) {
-        res.json(inventoryItems);
+    PrescriptionModel.find().then(function (prescriptions) {
+        res.json(prescriptions);
     }).catch(function (err) {
         console.error(err);
         res.sendStatus(500);
@@ -20,9 +21,8 @@ Router.get('/', (req, res) => {
 });
 
 Router.post('/', (req, res) => {
-    const inventoryItem = new InventoryItemModel(req.body);
-    inventoryItem.availableQty = inventoryItem.recievedQty;
-    inventoryItem.save(function (err,inventoryItem) {
+    const prescription = new PrescriptionModel(req.body);
+    prescription.save(function (err,prescription) {
         if(err){
             console.error(err);
             res.json({success:false});

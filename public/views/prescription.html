@@ -1,0 +1,149 @@
+<div ng-controller="PrescriptionController">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Dispense Drugs
+            <small>Dispense drugs for the patients</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Dispense</li>
+        </ol>
+    </section>
+
+    <br>
+    <br>
+    <!-- Main content -->
+    <section class="content">
+      <form class="form-inline">
+  
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Enter Patient ID">
+
+  <button type="search" class="btn btn-primary">Search</button>
+    </form>
+
+    <br>
+    <div class="row">
+        
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+
+
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Dispense Drugs</h3>
+                </div>
+
+                <!-- /.box-header -->
+                <div class="box-body">
+                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+                    <div class="row">
+
+                        <div class="col-sm-6">
+
+                            <div class="dataTables_length" id="example1_length">
+
+                                <label>Show 
+                                    <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                    entries</label>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-sm-6" align = "right">
+
+                                <div id="example1_filter" class="dataTables_filter">
+                                    <label><input type="search" class="form-control input-sm" placeholder="Enter Prescription ID" aria-controls="example1">
+                                    <button type="button" class="btn btn-primary btn-sm">Search</button>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+
+                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead>
+                                        <tr role="row">
+
+                                            <th>Prescription ID</th>
+                                            <th>Created Date</th>
+                                            <th>Prescription Date</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr ng-repeat="prescription in prescriptions">
+
+                                            <td>{{ prescription.prescriptionID }}</td>
+                                            <td>{{ prescription.createdDate }}</td>
+                                            <td>{{ prescription.prescriptionDate }}</td>
+                                            <td>
+                                              <button type="button" class="btn btn-link">View</button>
+                                           </td>
+                                        </tr>
+
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+                                    Showing 1 to 25 of 57 entries
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button previous disabled" id="example1_previous">
+                                            <a href="#/prescriptions" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a>
+                                        </li>
+                                        <li class="paginate_button active">
+                                            <a href="#/prescriptions" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a>
+                                        </li>
+                                        <li class="paginate_button ">
+                                            <a href="#/prescriptions" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a>
+                                        </li>
+                                        <li class="paginate_button ">
+                                            <a href="#/prescriptions" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a>
+                                        </li>
+                                        <li class="paginate_button next" id="example1_next">
+                                            <a href="#/prescriptions" aria-controls="example1" data-dt-idx="4" tabindex="0">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+       
+      
+    </div>
+   
+</section><!-- /.content -->
+
+</div>
+
+
+ 

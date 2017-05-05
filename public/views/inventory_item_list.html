@@ -24,8 +24,8 @@
                         <table id="tableInventoryItemList" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Drug ID</th>
-                                    <th>Supplier ID</th>
+                                    <th>Drug</th>
+                                    <th>Supplier</th>
                                     <th>Batch No</th>
                                     <th>Recieved Qty</th>
                                     <th>Available Qty</th>
@@ -35,8 +35,8 @@
                             </thead>
                             <tbody>
                                 <tr ng-repeat="inventoryItem in inventoryItems">
-                                    <td>{{ inventoryItem.drugId }}</td>
-                                    <td>{{ inventoryItem.supplierId }}</td>
+                                    <td>{{ inventoryItem.drug.tradeName }} <span class="text-muted" style="margin-left: 10px; font-size: 0.9em">({{ inventoryItem.drug.className }})</span></td>
+                                    <td>{{ inventoryItem.supplier.name }}</td>
                                     <td>{{ inventoryItem.batchNo }}</td>
                                     <td>{{ inventoryItem.recievedQty }}</td>
                                     <td>{{ inventoryItem.availableQty }}</td>

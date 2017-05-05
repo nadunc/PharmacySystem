@@ -20,6 +20,11 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
         .when("/test3", {
             templateUrl: "login.html"
         })
+        .when("/prescriptions", {
+            templateUrl: "views/prescription.html",
+            controller: "PrescriptionController"
+        })
+        
         .when("/drugs/all",{
             templateUrl: "views/drug_list.html",
             controller: "DrugController"

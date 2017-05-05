@@ -42,7 +42,7 @@
                                 <label for="input-drug-id" class="col-sm-3 control-label">Drug</label>
 
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="input-drug-id" ng-model="inventoryItem.drugId">
+                                    <select class="form-control" id="input-drug-id" ng-model="inventoryItem.drug">
                                         <option ng-repeat="drug in drugs" value="{{ drug._id }}">{{ drug.tradeName }}</option>
                                     </select>
                                 </div>
@@ -52,7 +52,7 @@
                                 <label for="input-supplier-id" class="col-sm-3 control-label">Supplier</label>
 
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="input-supplier-id" ng-model="inventoryItem.supplierId">
+                                    <select class="form-control" id="input-supplier-id" ng-model="inventoryItem.supplier">
                                         <option ng-repeat="supplier in suppliers" value="{{ supplier._id }}">{{ supplier.name }}</option>
                                     </select>
                                 </div>
