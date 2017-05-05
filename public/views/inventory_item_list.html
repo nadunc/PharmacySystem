@@ -27,9 +27,11 @@
                                     <th>Drug</th>
                                     <th>Supplier</th>
                                     <th>Batch No</th>
-                                    <th>Recieved Qty</th>
                                     <th>Available Qty</th>
                                     <th>Expiry Date</th>
+                                    <th>Received Qty</th>
+                                    <th>Manufactured Date</th>
+                                    <th>Buying Date</th>
                                     <th>Buying Price</th>
                                 </tr>
                             </thead>
@@ -38,20 +40,24 @@
                                     <td>{{ inventoryItem.drug.tradeName }} <span class="text-muted" style="margin-left: 10px; font-size: 0.9em">({{ inventoryItem.drug.className }})</span></td>
                                     <td>{{ inventoryItem.supplier.name }}</td>
                                     <td>{{ inventoryItem.batchNo }}</td>
-                                    <td>{{ inventoryItem.recievedQty }}</td>
                                     <td>{{ inventoryItem.availableQty }}</td>
                                     <td>{{ inventoryItem.expiryDate }}</td>
+                                    <td>{{ inventoryItem.receivedQty }}</td>
+                                    <td>{{ inventoryItem.manufactureDate }}</td>
+                                    <td>{{ inventoryItem.buyingDate }}</td>
                                     <td>{{ inventoryItem.buyingPrice }}</td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Drug ID</th>
-                                    <th>Supplier ID</th>
+                                    <th>Drug</th>
+                                    <th>Supplier</th>
                                     <th>Batch No</th>
-                                    <th>Recieved Qty</th>
                                     <th>Available Qty</th>
                                     <th>Expiry Date</th>
+                                    <th>Received Qty</th>
+                                    <th>Manufactured Date</th>
+                                    <th>Buying Date</th>
                                     <th>Buying Price</th>
                                 </tr>
                             </tfoot>
