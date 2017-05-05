@@ -1,7 +1,7 @@
 pharmacyApp.factory('PrescriptionService',['$http', function ($http) {
     return {
         get : function () {
-            return $http.get('/precriptions').then(function (res) {
+            return $http.get('/prescriptions').then(function (res) {
                 return res.data;
             });
         },

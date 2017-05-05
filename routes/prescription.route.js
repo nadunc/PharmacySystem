@@ -31,12 +31,6 @@ Router.post('/', (req, res) => {
         }
     });
 
-    // drug.save().then(function (drug) {
-    //     res.json(drug);
-    // }).catch(function (err) {
-    //     console.error(err);
-    //     res.sendStatus(500);
-    // });
 });
 
 module.exports = Router;
