@@ -5,6 +5,11 @@ pharmacyApp.factory('InventoryItemService',['$http', function ($http) {
                 return res.data;
             });
         },
+        getAvailableItems : function () {
+            return $http.get('/inventory/available').then(function (res) {
+                return res.data;
+            });
+        },
         getExpired : function () {
             return $http.get('/inventory/expired').then(function (res) {
                 return res.data;
