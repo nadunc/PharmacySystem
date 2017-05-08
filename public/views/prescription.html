@@ -8,6 +8,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
             <li class="active">Dispense</li>
+            
         </ol>
     </section>
 
@@ -60,9 +61,9 @@
                             <div class="col-sm-6" align = "right">
 
                                 <div id="example1_filter" class="dataTables_filter">
-                                    <label><input type="search" class="form-control input-sm" placeholder="Enter Prescription ID" aria-controls="example1">
-                                    <button type="button" class="btn btn-primary btn-sm">Search</button>
-                                    </label>
+                                    <label>Search : </label> <label> </label> <input id="pid" onkeyup="myFunction()"  type="search" class="form-control input-sm" placeholder="Enter Prescription ID" aria-controls="example1">
+                                    
+                                    
                                 </div>
 
                             </div>
@@ -92,10 +93,11 @@
                                             <td>{{ prescription.createdDate }}</td>
                                             <td>{{ prescription.prescriptionDate }}</td>
                                             <td>
-                                              <button type="button" class="btn btn-link">View</button>
+                                              <button type="button" class="btn btn-link"><a href="#/prescriptions/dispense">View</a></button>
                                            </td>
                                         </tr>
 
+                    
                                     </tbody>
 
 
@@ -144,6 +146,28 @@
 </section><!-- /.content -->
 
 </div>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("pid");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("example1");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+ 
 
 
  
