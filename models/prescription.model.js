@@ -10,15 +10,19 @@ const PrescriptionSchema = new Schema({
         type: String,
         required: true
     },
-    createdDate: {
+    date: {
+        type: Date,
+        required: true
+    },
+    patientID:{
         type: String,
         required: true
     },
-    prescriptionDate:{
+    prescriberID: {
         type: String,
         required: true
     },
-    patientID: {
+    drug:{
         type: String,
         required: true
     }
