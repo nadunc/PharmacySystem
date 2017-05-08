@@ -11,12 +11,14 @@ require('./models/inventoryItem.model');
 require('./models/prescription.model');
 require('./models/supplier.model');
 require('./models/user.model');
+//require('./models/patients.model');
 
 const DrugRouter = require('./routes/drug.route');
 const InventoryItemRouter = require('./routes/inventoryItem.route');
 const PrescriptionRouter = require('./routes/prescription.route');
 const SupplierRouter = require('./routes/supplier.route');
 const UserRouter = require('./routes/user.route');
+//const PatientsRouter = require('./routes/patients.route');
 
 const app = express();
 
@@ -62,7 +64,7 @@ app.use('/inventory', InventoryItemRouter);
 app.use('/prescriptions', PrescriptionRouter);
 app.use('/suppliers', SupplierRouter);
 app.use('/users', UserRouter);
-
+//app.use('/patients',PatientsRouter);
 
 app.listen(3000, err => {
     if (err) {
