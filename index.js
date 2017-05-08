@@ -39,10 +39,28 @@ mongoose.connect('mongodb://localhost:27017/pharmacy', err => {
 });
 
 
+//
+// app.get('/', (req, res) => {
+//     //res.sendFile(__dirname + '/public/index.html');
+//     res.redirect('/app');
+// });
+
+// app.get('/app', (req, res) => {
+//     res.sendFile(__dirname + '/public/index.html');
+// });
+
+//
+// app.get('/app/*', (req, res) => {
+//     res.sendFile(__dirname + '/public/login.html');
+// });
+
 app.get('/app/login', (req, res) => {
     res.sendFile(__dirname + '/public/login.html');
 });
 
+// app.get('*', (req, res) => {
+//     res.sendFile(__dirname + '/public/index.html');
+// });
 
 
 app.use('/drugs', DrugRouter);
