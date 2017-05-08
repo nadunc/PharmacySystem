@@ -11,18 +11,26 @@ require('./models/inventoryItem.model');
 require('./models/prescription.model');
 require('./models/supplier.model');
 require('./models/user.model');
+
+//require('./models/patients.model');
+
 require('./models/monthlyRequest.model');
 require('./models/department.model');
 require('./models/specialRequest.model');
+
 
 const DrugRouter = require('./routes/drug.route');
 const InventoryItemRouter = require('./routes/inventoryItem.route');
 const PrescriptionRouter = require('./routes/prescription.route');
 const SupplierRouter = require('./routes/supplier.route');
 const UserRouter = require('./routes/user.route');
+
+//const PatientsRouter = require('./routes/patients.route');
+
 const MonthlyRequestRouter = require('./routes/monthlyRequest.route');
 const DepartmentsRouter = require('./routes/department.route');
 const SpecialRequestRouter = require('./routes/specialRequest.route');
+
 
 const app = express();
 
@@ -68,10 +76,12 @@ app.use('/inventory', InventoryItemRouter);
 app.use('/prescriptions', PrescriptionRouter);
 app.use('/suppliers', SupplierRouter);
 app.use('/users', UserRouter);
+
+//app.use('/patients',PatientsRouter);
+
 app.use('/monthlyRequests', MonthlyRequestRouter);
 app.use('/departments', DepartmentsRouter);
 app.use('/specialRequests', SpecialRequestRouter);
-
 
 app.listen(3000, err => {
     if (err) {
