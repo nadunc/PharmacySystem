@@ -1,5 +1,5 @@
 
- <!-- <div ng-controller="SupplierController">
+  <div ng-controller="PatientsController">
 
     <section class="content-header">
         <h1>
@@ -22,37 +22,34 @@
                     </div>
 
                     <div class="box-body">
-                        <table id="tableSupplierList" class="table table-bordered table-striped">
+                        <table id="tablePatientsList" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Phone</th>
                                 <th>Address</th>
                                 <th>Email</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="supplier in suppliers">
-                                <td>{{ supplier.name }}</td>
-                                <td>{{ supplier.phone }}</td>
-                                <td>{{ supplier.address }}</td>
-                                <td>{{ supplier.email }}</td>
+                            <tr ng-repeat="patients in patients">
+                                <td>{{ patients.id }}</td>
+                                <td>{{ patients.firstname }}</td>
+                                <td>{{ patients.lastname }}</td>
+                                <td>{{ patients.phone }}</td>
+                                <td>{{ patients.address }}</td>
+                                <td>{{ patients.email }}</td>
 
                             </tr>
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Address</th>
-                                <th>Email</th>
-                            </tr>
-                            </tfoot>
+
                         </table>
 
                     </div>
 
-
+                </div>
             </div>
 
             <div class="col-xs-12 col-sm-10 col-md-4">
@@ -62,7 +59,7 @@
                         <h3 class="box-title">Data Table With Full Features</h3>
 
 
-                    <form ng-submit="addSupplier(supplier)">
+                    <form ng-submit="addPatients(patients)">
                         <div class="box-body">
 
                             <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
@@ -79,11 +76,27 @@
 
 
                             <div class="form-group">
-                                <label for="input-name" class="control-label">Name</label>
+                                <label for="input-id" class="control-label">Name</label>
 
 
-                                <input type="text" class="form-control" id="input-name" placeholder="Name"
-                                       ng-model="supplier.name">
+                                <input type="text" class="form-control" id="input-id" placeholder="Name"
+                                       ng-model="patients.id">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="input-firstname" class="control-label">First Name</label>
+
+
+                                <input type="text" class="form-control" id="input-firstname" placeholder="First Name"
+                                       ng-model="patients.firstname">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="input-lastname" class="control-label">Last Name</label>
+
+
+                                <input type="text" class="form-control" id="input-lastname" placeholder="Last Name"
+                                       ng-model="patients.lastname">
 
                             </div>
 
@@ -92,7 +105,7 @@
 
 
                                 <input type="text" class="form-control" id="input-phone" placeholder="Phone"
-                                       ng-model="supplier.phone">
+                                       ng-model="patients.phone">
 
                             </div>
 
@@ -101,7 +114,7 @@
 
 
                                 <textarea class="form-control" id="input-address" placeholder="Address"
-                                          ng-model="supplier.address"></textarea>
+                                          ng-model="patients.address"></textarea>
 
                             </div>
 
@@ -110,7 +123,7 @@
 
 
                                 <input type="email" class="form-control" id="input-email" placeholder="Email"
-                                       ng-model="supplier.email">
+                                       ng-model="patients.email">
 
                             </div>
 
@@ -118,15 +131,15 @@
                         </div>
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-info pull-right">Add Supplier</button>
+                            <button type="submit" class="btn btn-info pull-right">Add Patients</button>
                         </div>
 
                     </form>
 
+                    </div><!-- /.box -->
                 </div>
-            </div>
 
-        </div>
-    </section>
-</div>
--->
+            </div>
+            </div>
+    </section><!-- /.content -->
+  </div>
