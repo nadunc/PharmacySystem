@@ -22,7 +22,7 @@ pharmacyApp.controller('PrescriptController', ['$scope', '$route', '$http', 'Pre
                 $scope.successMsg = false;
                 $scope.errorMsg = true;
             }
-            // getDrugs();
+
         })
     };
 }]);
