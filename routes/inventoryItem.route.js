@@ -64,4 +64,31 @@ Router.get('/expiring/:days', function (req, res) {
 });
 
 
+Router.post('/dispense', (req, res) => {
+    /*
+     request body should have "id" and "qty" properties
+      Ex:-
+      {
+        "id" : "51gs564g64ger6g",
+        "qty" : "1"
+      }
+    */
+    InventoryItemModel.findOne({_id: req.body.id}, "availableQty", function (err, inventoryItem) {
+        if(err){
+            res.sendStatus(400);
+            return;
+        }
+
+        if(inventoryItem.availableQty >= req.body.qty){
+            var newQty = inventoryItem.availableQty - req.body.qty;
+            InventoryItemModel.update({_id: req.body.id}, {$set:{availableQty:newQty}}, function (err,result) {
+                res.json(result);
+            })
+        }else{
+            res.sendStatus(403);
+        }
+    });
+
+});
+
 module.exports = Router;
