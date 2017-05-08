@@ -37,7 +37,10 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/supplier_list.html",
             controller: "SupplierController"
         })
-
+        .when("/patients", {
+            templateUrl: "views/patients.html",
+            controller: "PatientsController"
+        })
         .when("/inventory/all", {
             templateUrl: "views/inventory_item_list.html",
             controller: "InventoryItemController"
