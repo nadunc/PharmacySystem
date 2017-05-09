@@ -15,7 +15,7 @@ pharmacyApp.controller('InventoryItemController', ['$scope', '$route', '$http', 
 
             });
 
-            $scope.inventoryItems = inventoryItems;
+            //$scope.inventoryItems = inventoryItems;
         })
     }
 

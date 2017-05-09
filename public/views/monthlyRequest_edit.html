@@ -21,7 +21,7 @@
                         <h3 class="box-title">Edit available packages</h3>
                     </div><!-- /.box-header -->
 
-                    <form class="form-horizontal" ng-submit="addDrug(drug)">
+                    <form class="form-horizontal" ng-submit="">
                         <div class="box-body">
 
                             <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
@@ -34,7 +34,7 @@
                             <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 <h4><i class="icon fa fa-ban"></i> Error!</h4>
-                              >
+                                >
                             </div>
 
                             <div class="form-group">
@@ -77,18 +77,18 @@
                                     <thead>
                                     <tr>
                                         <th>Drug Name</th>
-                                        <th>Brand Name</th>
-                                        <th>Unit Weight</th>
+                                        <th>Expiry Date</th>
+                                        <th>Quantity</th>
                                         <th>Unit Price</th>
 
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="monthlyRequest in monthlyRequests">
-                                        <td>{{ monthlyRequest.drugName }}</td>
-                                        <td>{{ monthlyRequest.brandName }}</td>
-                                        <td>{{ monthlyRequest.unitWeight }}</td>
-                                        <td>{{ monthlyRequest.unitPrice }}</td>
+                                    <tr ng-repeat="requestItem in requestItems">
+                                        <td>{{ requestItem.item.drug.tradeName }}</td>
+                                        <td>{{ requestItem.item.expiryDate }}</td>
+                                        <td>{{ requestItem.qty }}</td>
+                                        <td>{{ requestItem.item.drug.unitPrice }}</td>
 
                                     </tr>
                                     </tbody>
@@ -104,7 +104,7 @@
                                         <h3 class="box-title">Data Table With Full Features</h3>
                                     </div><!-- /.box-header -->
 
-                                    <form ng-submit="addSupplier(supplier)">
+                                    <form ng-submit="addRequestItem(requestItem)">
                                         <div class="box-body">
 
                                             <div class="alert alert-success alert-dismissible auto-close-alert"
@@ -132,59 +132,68 @@
                                                 <label for="input-name" class="control-label">Drug Name</label>
 
 
-                                                <input type="text" class="form-control" id="input-name"
-                                                       placeholder="Name"
-                                                       ng-model="monthlyRequest.drugName">
+                                                <select class="form-control select2 " id="input-name"
+                                                        ng-change="getAvailableInventoryItems()"
+                                                        ng-model="selectedDrug">
+                                                    <option ng-repeat="drug in drugs" ng-value="drug._id">
+                                                        {{drug.tradeName}}
+                                                    </option>
+                                                </select>
 
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="input-available-drugs" class="control-label">Available Drugs
+                                                    (Exp.Date | AvailableQty)
                                                 </label>
 
                                                 <select class="form-control select2 " id="input-available-drugs"
-                                                        ng-model="monthlyRequest.availableDrug">
-                                                    <option ng-repeat="availableDrug in availableDrugs" ng-value="department._id">
-                                                    {{monthlyRequest.availableDrug}}
+                                                        ng-model="requestItem.item">
+                                                    <option ng-repeat="availableInventoryItem in availableInventoryItems"
+                                                            ng-value="availableInventoryItem">
+                                                        Exp:{{ availableInventoryItem.expiryDate }} | Qty:{{
+                                                        availableInventoryItem.availableQty }}
                                                     </option>
                                                 </select>
 
                                             </div>
                                             <div class="form-group">
-                                                <label for="input-unit-weight" class="control-label">Unit Weight/Volume</label>
+                                                <label for="input-unit-weight" class="control-label">Required
+                                                    Quantity</label>
                                                 <div class="row">
                                                     <div class="col-sm-11">
-                                                        <div class=" col-md-5">
+                                                        <div class=" col-md-7">
                                                             <div class="input-group number-spinner">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" data-dir="dwn">
-                                                    <span class="glyphicon glyphicon-minus"></span>
-                                                </button>
-                                            </span>
+                                                                <span class="input-group-btn">
+                                                                    <button class="btn btn-default" data-dir="dwn">
+                                                                        <span class="glyphicon glyphicon-minus"></span>
+                                                                    </button>
+                                                                </span>
 
                                                                 <input type="text" class="form-control text-center"
                                                                        id="input-unit-weight"
                                                                        onkeypress="return isNumberKey(event)"
-                                                                       ng-model="monthlyRequest.unitWeight">
+                                                                       ng-model="requestItem.qty">
 
                                                                 <span class="input-group-btn">
-                                                <button class="btn btn-default" data-dir="up">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </button>
-                                            </span>
+                                                                    <button class="btn btn-default" data-dir="up">
+                                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                                    </button>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div><!-- /.box-body -->
+                                        <div class="box-footer">
+                                            <button type="submit" class="btn btn-info pull-right">Add Drug</button>
                                         </div>
+                                        <!-- /.box-footer -->
                                     </form>
                                 </div>
-                                <!-- /.box-body -->
-                                <div class="box-footer">
-                                    <button type="submit" class="btn btn-info pull-right">Add Drug</button>
-                                </div>
-                                <!-- /.box-footer -->
+
+
                             </div>
 
                         </div>
