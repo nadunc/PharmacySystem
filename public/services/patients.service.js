@@ -9,7 +9,7 @@ pharmacyApp.factory('PatientsService',['$http', function ($http) {
             });
         },
         //get: () => $http.get('/users').then(response => response.data),
-        add: patients => $http.post('/patients', supplier).then(response => response.data)
+        add: patients => $http.post('/patients', patients).then(response => response.data)
         // getById: id => $http.get('/drivers/' + id).then(response => response.data),
         // addComment: (id, comment) => $http.post('/drivers/' + id + '/comments', comment).then(response => response.data),
     };

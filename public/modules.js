@@ -41,6 +41,14 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/patients.html",
             controller: "PatientsController"
         })
+        .when("/prescript/add", {
+            templateUrl: "views/addPrescription.html",
+            controller: "PrescriptController"
+        })
+        .when("/prescript/history", {
+            templateUrl: "views/prescriptionHistory.html",
+            controller: "PrescriptController"
+        })
         .when("/inventory/all", {
             templateUrl: "views/inventory_item_list.html",
             controller: "InventoryItemController"
