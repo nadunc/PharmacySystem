@@ -79,7 +79,7 @@ app.use('/users', UserRouter);
 
 //app.use('/patients',PatientsRouter);
 
-app.use('/monthlyRequests', MonthlyRequestRouter);
+app.use('/unitMonthlyRequests', MonthlyRequestRouter);
 app.use('/departments', DepartmentsRouter);
 app.use('/specialRequests', SpecialRequestRouter);
 

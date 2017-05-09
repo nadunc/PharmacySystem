@@ -1,7 +1,7 @@
 pharmacyApp.factory('UnitMonthlyRequestService' ,('$http', function ($http) {
     return {
         get : function () {
-            return $http.get('/unitMonthlyRequest').then(function (res) {
+            return $http.get('/unitMonthlyRequests').then(function (res) {
                 return res.data;
             });
         },

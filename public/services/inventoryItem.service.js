@@ -5,8 +5,8 @@ pharmacyApp.factory('InventoryItemService',['$http', function ($http) {
                 return res.data;
             });
         },
-        getAvailableItems : function () {
-            return $http.get('/inventory/available').then(function (res) {
+        getAvailableItems : function (drugId) {
+            return $http.get('/inventory/available/'+drugId).then(function (res) {
                 return res.data;
             });
         },
