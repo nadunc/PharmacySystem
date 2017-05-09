@@ -1,0 +1,48 @@
+db.prescriptions.insert([{prescriptionID : "P1",createdDate: "2017-03-21",prescriptionDate: "2017-03-21",patientID: "001",
+druglist: [{
+	description : "Amoxilin",
+	dosage : "2",
+	frequency : "Take a day",
+	period : "For 4 days",
+	quantity : "8" 
+	
+
+},
+{
+	description : "Metformin",
+	dosage : "1",
+	frequency : "Take twice a day",
+	period : "For 5 days",
+	quantity : "10" 
+	
+
+}
+
+
+
+]}])
+
+
+db.prescriptions.insert([{prescriptionID : "P2",createdDate: "2017-04-15",prescriptionDate: "2017-04-15",patientID: "005",
+druglist: [{
+	description : "Naproxen",
+	dosage : "2",
+	frequency : "Take twice a day",
+	period : "For 3 days",
+	quantity : "12" 
+	
+
+},
+{
+	description : "Adderall",
+	dosage : "2",
+	frequency : "Take twice a day",
+	period : "For 5 days",
+	quantity : "20" 
+	
+
+}
+
+
+
+]}])
