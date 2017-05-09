@@ -21,7 +21,44 @@ const PrescriptionSchema = new Schema({
     patientID: {
         type: String,
         required: true
+    },
+    
+    druglist: {
+        
+            
+
+             description: {
+                type: String,
+                required: true
+            },
+
+            dosage: {
+                type: String,
+                required: true
+            },
+
+            frequency: {
+                type: String,
+                required: true
+            },
+
+            period: {
+                type: String,
+                required: true
+            },
+
+            quantity: {
+                type: String,
+                required: true
+            }
+            
+
     }
+
+   
+
+
+
 
 
 });
