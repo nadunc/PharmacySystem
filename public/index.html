@@ -16,9 +16,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="assets/template/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">-->
+    <link rel="stylesheet" href="assets/css/ionicons.min.css">
 
     <link rel="stylesheet" href="assets/template/plugins/select2/select2.min.css">
 
@@ -270,6 +272,20 @@ desired effect
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="#/test1"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                <li class="treeview">
+                    <a href="">
+                        <i class="fa fa-link"></i>
+                        <span>Prescription</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#/prescript/add">Add Prescription</a></li>
+                        <li><a href="#/prescript/history">Prescription History</a></li>
+
+                    </ul>
+                </li>
                 <li><a href="#/prescriptions"><i class="fa fa-link"></i> <span>Dispense</span></a></li>
                 <li><a href="#/suppliers"><i class="fa fa-link"></i> <span>Suppliers</span></a></li>
 		<li><a href="#/patients"><i class="fa fa-link"></i> <span>Patients</span></a></li>
@@ -463,6 +479,9 @@ desired effect
 
 <script src="services/drug.service.js"></script>
 <script src="controllers/drug.controller.js"></script>
+
+<script src="services/prescript.service.js"></script>
+<script src="controllers/prescript.controller.js"></script>
 
 <script src="services/supplier.service.js"></script>
 <script src="controllers/supplier.controller.js"></script>

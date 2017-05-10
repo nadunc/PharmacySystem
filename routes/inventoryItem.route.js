@@ -33,8 +33,10 @@ Router.post('/', (req, res) => {
 
 });
 
-Router.get('/available', (req, res) => {
-    InventoryItemModel.find({expiryDate: { $gt: new Date() }, availableQty:{$gt:0} }).populate('drug').populate('supplier').exec().then(function (inventoryItems) {
+Router.get('/available/:drugId', (req, res) => {
+    var drugId = req.params.drugId;
+
+    InventoryItemModel.find({drug:drugId, expiryDate: { $gt: new Date() }, availableQty:{$gt:0} }).populate('drug').populate('supplier').exec().then(function (inventoryItems) {
         res.json(inventoryItems);
     }).catch(function (err) {
         console.error(err);

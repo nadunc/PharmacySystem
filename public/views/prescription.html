@@ -1,4 +1,6 @@
 <div ng-controller="PrescriptionController">
+  
+  
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -8,6 +10,7 @@
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
             <li class="active">Dispense</li>
+            
         </ol>
     </section>
 
@@ -15,14 +18,17 @@
     <br>
     <!-- Main content -->
     <section class="content">
+
       <form class="form-inline">
   
-  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Enter Patient ID">
+  <label class="btn btn-info">Search </label> <label> </label> 
+  <input type="text" ng-model="search.patientID" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Enter Patient ID">
 
-  <button type="search" class="btn btn-primary">Search</button>
+ 
     </form>
 
     <br>
+    <form name="prescriptionForm">
     <div class="row">
         
 
@@ -60,15 +66,14 @@
                             <div class="col-sm-6" align = "right">
 
                                 <div id="example1_filter" class="dataTables_filter">
-                                    <label><input type="search" class="form-control input-sm" placeholder="Enter Prescription ID" aria-controls="example1">
-                                    <button type="button" class="btn btn-primary btn-sm">Search</button>
-                                    </label>
+                                    <label class="btn btn-info" >Search </label> <label> </label> <input  id="pid" onkeyup="myFunction()"  type="search" class="form-control input-sm" placeholder="Enter Prescription ID" aria-controls="example1">
+                                    
+                                    
                                 </div>
 
                             </div>
                         </div>
                         <br>
-
                         <div class="row">
 
                             <div class="col-sm-12">
@@ -77,31 +82,85 @@
                                     <thead>
                                         <tr role="row">
 
-                                            <th>Prescription ID</th>
-                                            <th>Created Date</th>
-                                            <th>Prescription Date</th>
-                                            <th>Action</th>
+                                            <th class="text-center">Prescription ID</th>
+                                            <th class="text-center">Created Date</th>
+                                            <th class="text-center">Prescription Date</th>
+                                            <th class="text-center">Action</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr ng-repeat="prescription in prescriptions">
+                                        <tr  ng-repeat="list  in prescriptions | filter:search:strict" class="text-center"  ng-init="parentIndex = $index" >
 
-                                            <td>{{ prescription.prescriptionID }}</td>
-                                            <td>{{ prescription.createdDate }}</td>
-                                            <td>{{ prescription.prescriptionDate }}</td>
-                                            <td>
-                                              <button type="button" class="btn btn-link">View</button>
-                                           </td>
+                                            <td ng-model="test">{{ list.prescriptionID }}</td>
+                                            <td >{{ list.createdDate }}</td>
+                                            <td >{{ list.prescriptionDate }}</td>
+                                            <td >
+                                           
+                                           
+                                            <button type="button" class="btn btn-info btn-sm"  ng-init="myCheck=false"   ng-click="myCheck=true"  >View</button>
+                                          
+
+                                            </td>
+                                             
+
+                                            <td ng-show="myCheck">
+
+                                                  <div class="box-body">
+                                                    <h4>Prescription Details</h4>
+                                                     <div class="row">
+                                                        <form class="form-horizontal" style="background-color:lavender;">
+                                                            <div class="form-group">
+                                                               
+                                            <div  class="col-md-8 col-md-offset-1 " ></div>
+                                            <div  class="col-sm-2 col-sm-offset-1 " ></div>
+                                              <div   class="col-sm-2 col-md-2 " ><strong >Description</strong></div>
+                                              <div   class="col-md-2 text-center" ><strong>Dosage</strong></div>
+                                             
+                                              <div  class="col-md-3 text-right" ><strong >Frequency</strong></div>
+                                              
+                                              <div  class="col-md-3 text-right"><strong >Period</strong></div>
+                                            
+                                              <div  class="col-md-2 text-right"><strong >Quantity</strong></div>
+
+                                              </div>
+                                            <div ng-repeat="(key, lists) in list.druglist ">
+
+                                                <div  class="col-md-10 col-md-offset-1 col-centered" ></div>
+                                                 
+                                              <div  class="col-md-2 col-md-offset-1 text-center" >{{ lists.description }}</div>
+                                              <div   class=" col-md-2 text-left" >{{ lists.dosage }}</div>
+                                              <div  class="col-md-3 text-left" >{{lists.frequency}}</div>
+                                              <div  class="col-md-2 text-left" >{{ lists.period }}</div>
+                                              <div  class="col-md-2 col-sm-2 text-left ">{{ lists.quantity }}</div>
+                                                
+                                            <br>
+                                            <br>
+                                              
+                                           </div>
+
+                                           </div>
+                                       </div>
+                                   </div>
+                                    </form>
+                                    <a href="#/prescriptions/dispense" class="btn btn-warning">Dispense</a>
+           
+                                    <button type="button" class="btn btn-default" ng-click="myCheck=false" >Close</button>
+                                            </td>
+                                        
+
                                         </tr>
-
+                    
                                     </tbody>
 
 
                                 </table>
+
                             </div>
                         </div>
+
+                                                    
 
                         <div class="row">
                             <div class="col-sm-5">
@@ -140,10 +199,29 @@
        
       
     </div>
-   
+              
+            
 </section><!-- /.content -->
 
 </div>
 
-
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("pid");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("example1");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
  
