@@ -1,22 +1,22 @@
 /**
  * Created by User PC on 5/7/2017.
  */
-pharmacyApp.controller('PatientsController', ['$scope', '$route', '$http', 'PatientsService', function ($scope, $route, $http, PatientsService) {
+pharmacyApp.controller('PatientController', ['$scope', '$route', '$http', 'PatientService', function ($scope, $route, $http, PatientService) {
 
     function getPatients() {
-        PatientsService.get().then(function (patients) {
+        PatientService.get().then(function (patients) {
             $scope.patients = patients;
         })
     }
 
     getPatients();
 
-    $scope.addPatients = function (patients) {
-        PatientsService.add(patients).then(function (data) {
+    $scope.addPatients = function (patient) {
+        PatientService.add(patient).then(function (data) {
             if(data.success){
                 $scope.errorMsg = false;
                 $scope.successMsg = true;
-                $scope.patients = {};
+                $scope.patient = {};
 
             }else{
                 $scope.successMsg = false;

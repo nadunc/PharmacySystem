@@ -11,6 +11,7 @@ require('./models/inventoryItem.model');
 require('./models/prescription.model');
 require('./models/supplier.model');
 require('./models/user.model');
+require('./models/patients.model');
 
 //require('./models/patients.model');
 
@@ -24,6 +25,7 @@ const InventoryItemRouter = require('./routes/inventoryItem.route');
 const PrescriptionRouter = require('./routes/prescription.route');
 const SupplierRouter = require('./routes/supplier.route');
 const UserRouter = require('./routes/user.route');
+const PatientRouter = require('./routes/patients.route');
 
 //const PatientsRouter = require('./routes/patients.route');
 
@@ -76,6 +78,7 @@ app.use('/inventory', InventoryItemRouter);
 app.use('/prescriptions', PrescriptionRouter);
 app.use('/suppliers', SupplierRouter);
 app.use('/users', UserRouter);
+app.use('/patients', PatientRouter);
 
 //app.use('/patients',PatientsRouter);
 
