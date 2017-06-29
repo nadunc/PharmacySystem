@@ -30,4 +30,14 @@ Router.post('/', (req, res) => {
     });
 });
 
+Router.post('/login', function (req, res) {
+    UserModel.findOne({userName:req.body.username, password:req.body.password}, function (err, user) {
+        if(err){
+            res.sendStatus(500);
+        }else{
+            res.json(user);
+        }
+    })
+});
+
 module.exports = Router;

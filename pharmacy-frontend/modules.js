@@ -1,6 +1,6 @@
 'use strict';
 
-var pharmacyApp = angular.module("pharmacyApp", ["ngRoute"]);
+var pharmacyApp = angular.module("pharmacyApp", ["ngRoute","ngStorage"]);
 
 pharmacyApp.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(false).hashPrefix('');
@@ -24,16 +24,16 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/prescription.html",
             controller: "PrescriptionController"
         })
-    .when("/prescriptions/dispense", {
+        .when("/prescriptions/dispense", {
             templateUrl: "views/dispenser.html",
             controller: "BillerController"
         })
-        
-        .when("/drugs/all",{
+
+        .when("/drugs/all", {
             templateUrl: "views/drug_list.html",
             controller: "DrugController"
         })
-        .when("/drugs/add",{
+        .when("/drugs/add", {
             templateUrl: "views/drug_add.html",
             controller: "DrugController"
         })

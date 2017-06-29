@@ -3,11 +3,11 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html>
+<html ng-app="pharmacyApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pharmacy</title>
+    <title id="pagetitle">Pharmacy</title>
 	
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-32x32.png">
 	
@@ -63,14 +63,14 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini" ng-app="pharmacyApp">
+<body class="hold-transition skin-blue sidebar-mini" ng-controller="UserController">
 <div class="wrapper">
 
     <!-- Main Header -->
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="index.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>P</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -271,7 +271,6 @@ desired effect
             <ul class="sidebar-menu">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#/test1"><i class="fa fa-link"></i> <span>Link</span></a></li>
                 <li class="treeview">
                     <a href="">
                         <i class="fa fa-link"></i>
@@ -469,6 +468,7 @@ desired effect
 <script src="assets/js/menu.js"></script>
 <script src="assets/js/angular.js"></script>
 <script src="assets/js/angular-route.js"></script>
+<script src="assets/js/ngStorage.min.js"></script>
 <script src="assets/js/number-spinner.js"></script>
 
 <script src="assets/template/plugins/datepicker/bootstrap-datepicker.js"></script>
