@@ -1,5 +1,5 @@
 
-  <div ng-controller="PatientsController">
+  <div ng-controller="PatientController">
 
     <section class="content-header">
         <h1>
@@ -22,7 +22,7 @@
                         <h3 class="box-title">Add Patients</h3>
 
 
-                        <form ng-submit="addPatients(patients)">
+                        <form ng-submit="addPatients(patient)">
                             <div class="box-body">
 
                                 <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
@@ -37,21 +37,12 @@
 
                                 </div>
 
-
-                                <div class="form-group">
-                                    <label for="input-id" class="control-label">Name</label>
-
-
-                                    <input type="text" class="form-control" id="input-id" placeholder="Name"
-                                           ng-model="patients.id">
-
-                                </div>
                                 <div class="form-group">
                                     <label for="input-firstname" class="control-label">First Name</label>
 
 
                                     <input type="text" class="form-control" id="input-firstname" placeholder="First Name"
-                                           ng-model="patients.firstname">
+                                           ng-model="patient.firstname">
 
                                 </div>
                                 <div class="form-group">
@@ -59,7 +50,7 @@
 
 
                                     <input type="text" class="form-control" id="input-lastname" placeholder="Last Name"
-                                           ng-model="patients.lastname">
+                                           ng-model="patient.lastname">
 
                                 </div>
 
@@ -68,7 +59,7 @@
 
 
                                     <input type="text" class="form-control" id="input-phone" placeholder="Phone"
-                                           ng-model="patients.phone">
+                                           ng-model="patient.phone">
 
                                 </div>
 
@@ -77,7 +68,7 @@
 
 
                                     <textarea class="form-control" id="input-address" placeholder="Address"
-                                              ng-model="patients.address"></textarea>
+                                              ng-model="patient.address"></textarea>
 
                                 </div>
 
@@ -86,7 +77,7 @@
 
 
                                     <input type="email" class="form-control" id="input-email" placeholder="Email"
-                                           ng-model="patients.email">
+                                           ng-model="patient.email">
 
                                 </div>
 
@@ -130,13 +121,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="patients in patients">
-                                <td>{{ patients.id }}</td>
-                                <td>{{ patients.firstname }}</td>
-                                <td>{{ patients.lastname }}</td>
-                                <td>{{ patients.phone }}</td>
-                                <td>{{ patients.address }}</td>
-                                <td>{{ patients.email }}</td>
+                            <tr ng-repeat="patient in patients">
+                                <td>{{ patient.id }}</td>
+                                <td>{{ patient.firstname }}</td>
+                                <td>{{ patient.lastname }}</td>
+                                <td>{{ patient.phone }}</td>
+                                <td>{{ patient.address }}</td>
+                                <td>{{ patient.email }}</td>
 
                             </tr>
                             </tbody>

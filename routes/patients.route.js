@@ -8,13 +8,13 @@ const mongoose = require('mongoose');
 
 mongoose.set('debug', false);
 
-const PatientsModel = mongoose.model('Patients');
+const PatientModel = mongoose.model('Patient');
 
 const Router = express.Router();
 
 
 Router.get('/', (req, res) => {
-    PatientsModel.find().then(function (patients) {
+    PatientModel.find().then(function (patients) {
         res.json(patients);
     }).catch(function (err) {
         console.error(err);
@@ -23,8 +23,8 @@ Router.get('/', (req, res) => {
 });
 
 Router.post('/', (req, res) => {
-    const patients = new PatientsModel(req.body);
-    patients.save(function (err,patients) {
+    const patient = new PatientModel(req.body);
+    patient.save(function (err,patient) {
         if(err){
             console.error(err);
             res.json({success:false});

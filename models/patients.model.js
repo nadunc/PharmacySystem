@@ -8,10 +8,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PatientsSchema = new Schema({
-    id: {
-        type: number,
-        required: true
-    },
+    
     firstname: {
         type: String,
         required: true
@@ -34,6 +31,6 @@ const PatientsSchema = new Schema({
     }
 });
 
-const Patients = mongoose.model('Patients', PatientsSchema);
+const Patient = mongoose.model('Patient', PatientsSchema);
 
-module.exports = Patients;
+module.exports = Patient;
