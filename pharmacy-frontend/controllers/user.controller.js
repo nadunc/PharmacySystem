@@ -70,7 +70,7 @@ pharmacyApp.controller('UserController', ['$scope', '$route', '$http', 'UserServ
                     $window.location.href = 'login.html';
                 }
             }
-        }, 2000);
+        }, 1000);
     }
 
 
