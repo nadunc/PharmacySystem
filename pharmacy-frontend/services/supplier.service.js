@@ -6,7 +6,13 @@ pharmacyApp.factory('SupplierService',['$http', function ($http) {
             });
         },
 
-        add: supplier => $http.post(nodeHost+'/suppliers', supplier).then(response => response.data)
+        add: supplier => $http.post(nodeHost+'/suppliers', supplier).then(response => response.data),
+
+        update: function (supplier) {
+            return $http.put(nodeHost+'/suppliers', supplier).then(function (res) {
+                return res.data;
+            });
+        }
 
     };
 }]);

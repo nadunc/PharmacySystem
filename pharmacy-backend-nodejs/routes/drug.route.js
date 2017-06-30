@@ -48,11 +48,13 @@ Router.post('/', (req, res) => {
 });
 
 
-Router.put('/', function (req,res) {
+Router.put('/', function (req, res) {
     var drug = req.body;
-    DrugModel.update(drug).then(function (drug) {
-        res.json(drug);
+
+    DrugModel.update({_id:drug._id}, {$set:drug}, function (err, response) {
+        res.json(response);
     })
+
 });
 
 module.exports = Router;
