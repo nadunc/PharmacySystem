@@ -42,4 +42,5 @@ pharmacyApp.controller('DrugController', ['$scope', '$route', '$http', 'DrugServ
             }
         });
     };
+
 }]);

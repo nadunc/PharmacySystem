@@ -21,14 +21,23 @@ Router.get('/', (req, res) => {
 
 Router.post('/', (req, res) => {
     const supplier = new SupplierModel(req.body);
-    supplier.save(function (err,supplier) {
-        if(err){
+    supplier.save(function (err, supplier) {
+        if (err) {
             console.error(err);
-            res.json({success:false});
-        }else{
-            res.json({success:true});
+            res.json({success: false});
+        } else {
+            res.json({success: true});
         }
     });
+
+});
+
+Router.put('/', function (req, res) {
+    var supplier = req.body;
+
+    SupplierModel.update({_id:supplier._id}, {$set:supplier}, function (err, response) {
+        res.json(response);
+    })
 
 });
 

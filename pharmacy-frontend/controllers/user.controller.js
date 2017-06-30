@@ -36,7 +36,7 @@ pharmacyApp.controller('UserController', ['$scope', '$route', '$http', 'UserServ
                 $scope.$storage.id = data.id;
                 $scope.$storage.name = data.name;
                 $scope.$storage.token = data.token;
-                alert("Logged in!");
+                // alert("Logged in!");
 
                 $window.location.href = 'index.html';
 
