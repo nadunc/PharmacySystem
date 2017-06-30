@@ -9,17 +9,26 @@ const BillSchema = new Schema({
         type: String,
         required: true
     },
-    prescriptionID: {
+   
+    prescriptionNo: {
         type: String,
         required: true
     },
-
-    amount: {
+    invoiceDate: {
+        type: Date,
+        required: true
+    },
+    amount:{
         type: String,
         required: true
+    },
+    note: {
+        type: String
+        
     }
 });
 
-const Biller = mongoose.model('Biller', SupplierSchema);
+const Bill = mongoose.model('Bill', BillSchema);
 
-module.exports = Biller;
+module.exports = Bill;
+
