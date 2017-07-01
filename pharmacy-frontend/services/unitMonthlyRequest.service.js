@@ -6,13 +6,8 @@ pharmacyApp.factory('UnitMonthlyRequestService' ,('$http', function ($http) {
             });
         },
 
-        add: unitMonthlyRequest => $http.post(nodeHost+'/unitRequest', unitMonthlyRequest).then(response => response.data),
+        add: unitMonthlyRequest => $http.post(nodeHost+'/unitMonthlyRequests', unitMonthlyRequest).then(response => response.data),
 
-        getDepartments : function () {
-            return $http.get(nodeHost+'/departments').then(function (res) {
-                return res.data;
-            });
-        }
     }
 
 }));
