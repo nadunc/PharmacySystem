@@ -1,22 +1,38 @@
 'use strict';
 
-const express = require('express');
 const mongoose = require('mongoose');
 
-mongoose.set('debug', false);
+const Schema = mongoose.Schema;
 
-const MonthlyRequestModel = mongoose.model('MonthlyRequest');
+const MonthlyRequestSchema = new Schema({
+    inventoryItems: [{
+        item: {
+            type: Schema.Types.ObjectId,
+            ref: 'InventoryItem'
+        }, qty: {
+            type: Number,
+            required: true
+        }
+    }],
 
-const Router = express.Router();
+    requestId :{
+        type : String,
+        required : true
+    },
 
-
-Router.get('/', (req, res) => {
-    MonthlyRequestModel.find().then(function (monthlyRequests) {
-        res.json(monthlyRequests);
-    }).catch(function (err) {
-        console.error(err);
-        res.sendStatus(500);
-    });
+    department: {
+        type: Schema.ObjectId,
+        ref: 'Department'
+    },
+    requestedDate: {
+        type: String,
+        required: String
+    },
+    issueDate: {
+        type: String,
+    }
 });
 
-module.exports = Router;
+const MonthlyRequest = mongoose.model('MonthlyRequest', MonthlyRequestSchema);
+
+module.exports = MonthlyRequest;
