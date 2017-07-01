@@ -6,6 +6,8 @@ import pharmacy.model.SupplierRequest;
 import pharmacy.repository.SupplierRequestRepository;
 import pharmacy.service.SupplierRequestService;
 
+import java.util.List;
+
 /**
  * Created by Nadun on 7/1/2017.
  */
@@ -18,5 +20,10 @@ public class SupplierRequestServiceImpl implements SupplierRequestService {
     @Override
     public SupplierRequest save(SupplierRequest supplierRequest) {
         return supplierRequestRepository.save(supplierRequest);
+    }
+
+    @Override
+    public List<SupplierRequest> get() {
+        return supplierRequestRepository.findAll();
     }
 }
