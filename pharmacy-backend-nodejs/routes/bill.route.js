@@ -5,14 +5,14 @@ const mongoose = require('mongoose');
 
 mongoose.set('debug', false);
 
-const BillModel = mongoose.model('Biller');
+const BillModel = mongoose.model('Bill');
 
 const Router = express.Router();
 
 
 
 Router.get('/', (req, res) => {
-    BillerModel.find().then(function (bills) {
+    BillModel.find().then(function (bills) {
         res.json(bills);
     }).catch(function (err) {
         console.error(err);
@@ -21,7 +21,7 @@ Router.get('/', (req, res) => {
 });
 
 Router.post('/', (req, res) => {
-    const bill = new BillerModel(req.body);
+    const bill = new BillModel(req.body);
     bill.save(function (err,bill) {
         if(err){
             console.error(err);
@@ -34,3 +34,4 @@ Router.post('/', (req, res) => {
 });
 
 module.exports = Router;
+
