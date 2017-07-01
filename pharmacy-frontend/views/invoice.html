@@ -21,7 +21,7 @@
                         <h3 class="box-title">New Invoice</h3>
                     </div><!-- /.box-header -->
 
-                    <form class="form-horizontal" ng-submit="addBill(Bill)">
+                    <form class="form-horizontal" ng-submit="addBill(bill)">
                         <div class="box-body">
 
                             <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
@@ -48,7 +48,7 @@
                                             <i class="fa fa-calendar"></i>
                                         </div>
                                         <input type="text" class="form-control datepicker" id="input-inv-date"
-                                               placeholder="Invoice Date" ng-model="Bill.invoiceDate">
+                                               placeholder="Invoice Date" ng-model="bill.invoiceDate">
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
 
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" id="input-prescription-id"
-                                           ng-model="Bill.prescriptionNo">
+                                           ng-model="bill.prescriptionNo">
                                     
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
 
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" id="input-patient-id"
-                                           ng-model="Bill.patientID">
+                                           ng-model="bill.patientID">
                                     
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
 
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" id="input-amount"
-                                           ng-model="Bill.amount">
+                                           ng-model="bill.amount">
                                     
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                 <div class="col-sm-6">
                                     
                                 <textarea class="form-control" id="input-remark" placeholder="Enter Drug Description"
-                                       ng-model="Bill.note"></textarea>
+                                       ng-model="bill.note"></textarea>
                                     
                                 </div>
                             </div>
@@ -141,11 +141,11 @@
                         <h3 class="box-title">Drug Stock</h3>
                         
                          <form class="form-inline" align = "right">
-  
+                            <div align = "right">
                           <label class="btn btn-info">Search </label> <label> </label> 
                          
                            <input  id="drugid" onkeyup="myFunction()"  type="search" class="form-control input-sm" placeholder="Enter Drug Name" aria-controls="ItemList">
-                     
+                        </div>
                         </form>
                       
                     </div>
@@ -156,7 +156,7 @@
                                 <tr>
                                     <th>Drug #</th>
                                     <th>Drug</th>
-                                    <th>Unit Price</th>
+                                    <th>Unit Price (Rs.)</th>
                                     
                                    
                             </thead>
@@ -165,7 +165,7 @@
                                     <td>{{$index+1}}</td>
                                     <td>{{ drug.tradeName }} <span class="text-muted" style="margin-left: 10px; font-size: 0.9em">({{ drug.className }})</span></td>
                             
-                                    <td>{{drug.unitPrice}} }}</td>
+                                    <td>{{drug.unitPrice}}.00 </td>
 
                                 </tr>
                             </tbody>
