@@ -76,7 +76,14 @@ pharmacyApp.controller('SupplierController', ['$scope', '$route', '$http', 'Supp
 
     function getSupplierRequests() {
         SupplierService.getRequests().then(function (requests) {
+
             $scope.requests = requests;
+
+            // for(var i=0; i<requests; i++){
+            //     SupplierService.findById(requests[i].supplier).then(function (supplier) {
+            //         requests[i].supplier = supplier;
+            //     });
+            // }
 
             // for(var i=0; i<$scope.requests; i++){
             //     for(var j=0; j<$scope.suppliers.length; j++){

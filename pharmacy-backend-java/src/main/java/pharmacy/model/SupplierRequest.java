@@ -46,6 +46,7 @@ public class SupplierRequest {
     public void setDrugs(SupplierRequestDrug[] drugs) {
         this.drugs = drugs;
     }
+
 }
 
 

@@ -19,6 +19,15 @@ Router.get('/', (req, res) => {
     });
 });
 
+Router.get('/:id', (req, res) => {
+    SupplierModel.findOne({_id:req.params.id}).then(function (supplier) {
+        res.json(supplier);
+    }).catch(function (err) {
+        console.error(err);
+        res.sendStatus(500);
+    });
+});
+
 Router.post('/', (req, res) => {
     const supplier = new SupplierModel(req.body);
     supplier.save(function (err, supplier) {

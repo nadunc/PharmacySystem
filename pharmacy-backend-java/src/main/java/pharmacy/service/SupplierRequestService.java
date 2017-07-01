@@ -10,4 +10,5 @@ import java.util.List;
 public interface SupplierRequestService {
     SupplierRequest save(SupplierRequest supplierRequest);
     List<SupplierRequest> get();
+
 }

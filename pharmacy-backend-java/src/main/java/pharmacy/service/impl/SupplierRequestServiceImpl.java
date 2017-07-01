@@ -26,4 +26,5 @@ public class SupplierRequestServiceImpl implements SupplierRequestService {
     public List<SupplierRequest> get() {
         return supplierRequestRepository.findAll();
     }
+
 }

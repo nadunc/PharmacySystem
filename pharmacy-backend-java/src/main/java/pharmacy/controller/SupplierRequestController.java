@@ -26,4 +26,5 @@ public class SupplierRequestController {
     private List<SupplierRequest> get(){
         return supplierRequestService.get();
     }
+
 }

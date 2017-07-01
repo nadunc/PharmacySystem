@@ -22,4 +22,5 @@ public class SupplierRequestDrug {
     public void setQty(int qty) {
         this.qty = qty;
     }
+
 }

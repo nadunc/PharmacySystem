@@ -53,7 +53,7 @@ pharmacyApp.controller('UserController', ['$scope', '$route', '$http', 'UserServ
     };
 
     // checkAuth('{"id":"' + $scope.$storage.id + '", "token":"' + $scope.$storage.token + '"}');
-    // checkAuth(angular.toJson($localStorage));
+    checkAuth(angular.toJson($localStorage));
 
     function checkAuth(authData) {
 
