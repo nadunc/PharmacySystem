@@ -1,4 +1,4 @@
-<div ng-controller="PrescriptionController">
+<div ng-controller="PrescriptController">
   
   
     <!-- Content Header (Page header) -->
@@ -16,6 +16,8 @@
 
     <br>
     <br>
+
+
     <!-- Main content -->
     <section class="content">
 
@@ -42,10 +44,10 @@
                     <h3 class="box-title">Dispense Drugs</h3>
                      
                     <form class="form-inline" align = "right" name="myForm">
-                  
+                        <div  align = "right" >
                       <label class="btn btn-info">Search </label> <label> </label> 
                       <input type="text" ng-model="search.prescriptionID" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Enter Prescription ID" name="prescription">
-                    
+                        </div>
                      
                     </form>
                      
@@ -84,7 +86,7 @@
                                          
                                     </thead>
                                 </table>
-                                <div ng-repeat="prescription in prescriptions | filter:{patientID: search.patientID , prescriptionID : search.prescriptionID}" >
+                                <div ng-repeat="prescript in prescripts | filter:{patientID: search.patientID , prescriptionID : search.prescriptionID}" >
                                
                                
                                 <table id="example1" class="table table-bordered table-striped dataTable" role="grid" >
@@ -94,15 +96,15 @@
                                           
                                       <div class="container"  >
                                       
-                                        <p > <h5><b>Prescription # : {{ prescription.prescriptionID }} 
+                                        <p > <h5><b>Prescription # : {{ prescript.prescriptionID }} 
 
                                           
                                    
 
-                                          <br/> Patient # : {{ prescription.patientID }} <br>
+                                          <br/> Patient # : {{ prescript.patientID }} <br>
 
                                           
-                                          {{ prescription.prescriptionDate }} </b></h5>
+                                          {{ prescript.prescriptionDate }} </b></h5>
 
                                          
                                         </p>
@@ -110,7 +112,7 @@
                                         </div> 
                                            
                                       
-                                        <tr ng-repeat="data in prescription.druglist" >
+                                        <tr ng-repeat="data in prescript.druglist" >
                                             
                                             <td> </td>
                                             <td class="text-right">{{$index+1}}</td>
@@ -177,11 +179,11 @@
                         <h3 class="box-title">Drug Stock</h3>
                         
                          <form class="form-inline" align = "right">
-  
+                        <div align = "right">
                           <label class="btn btn-info">Search </label> <label> </label> 
                          
                            <input  id="drugid" onkeyup="myFunction()"  type="search" class="form-control input-sm" placeholder="Enter Drug Name" aria-controls="ItemList">
-                     
+                        </div>
                         </form>
                       
                     </div>
