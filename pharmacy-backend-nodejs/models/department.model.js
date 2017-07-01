@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const DepatmentSchema = new Schema({
+const DepartmentSchema = new Schema({
     deptName: {
         type: String,
         required: true
@@ -27,6 +27,6 @@ const DepatmentSchema = new Schema({
     }
 });
 
-const Department = mongoose.model('Department', DepatmentSchema);
+const Department = mongoose.model('Department', DepartmentSchema);
 
 module.exports = Department;
