@@ -1,15 +1,23 @@
-pharmacyApp.controller('BillerController', ['$scope', '$route', '$http', 'BillerService', function ($scope, $route, $http, BillerService) {
+pharmacyApp.controller('BillController', ['$scope', '$route', '$http', 'BillService','DrugService', function ($scope, $route, $http, BillService,DrugService) {
 
     function getBills() {
-        BillerService.get().then(function (bills) {
+        BillService.get().then(function (bills) {
             $scope.bills = bills;
         })
     }
 
     getBills();
 
+    function getDrugs() {
+        DrugService.get().then(function (drugs) {
+            $scope.drugs = drugs;
+        })
+    }
+
+    getDrugs();
+    
     $scope.addBill = function (bill) {
-        BillerService.add(bill).then(function (data) {
+        BillService.add(bill).then(function (data) {
             if(data.success){
                 $scope.errorMsg = false;
                 $scope.successMsg = true;

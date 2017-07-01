@@ -283,7 +283,22 @@ desired effect
 
                     </ul>
                 </li>
-                <li><a href="#/prescriptions"><i class="fa fa-link"></i> <span>Dispense</span></a></li>
+                <li class="treeview">
+                    <a href="">
+                        <i class="fa fa-link"></i>
+                        <span>Dispense</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#/prescriptions">View Prescription</a></li>
+                        <li><a href="#/prescriptions/bill">Customer Invoice</a></li>
+                        <li><a href="#/prescriptions/dispense">Invoice Histroy</a></li>
+                      
+                    </ul>
+                </li>
+                
 
 
                 <li><a href="#/patients"><i class="fa fa-link"></i> <span>Patients</span></a></li>
@@ -512,7 +527,8 @@ desired effect
 	
 <script src="services/patients.service.js"></script>
 <script src="controllers/patients.controller.js"></script>
-
+<script src="services/bill.service.js"></script>
+<script src="controllers/bill.controller.js"></script>
 
 </body>
 </html>
