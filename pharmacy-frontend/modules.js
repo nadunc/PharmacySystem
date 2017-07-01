@@ -22,7 +22,7 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
         })
         .when("/prescriptions", {
             templateUrl: "views/prescription.html",
-            controller: "PrescriptionController"
+            controller: "PrescriptController"
         })
         .when("/prescriptions/dispense", {
             templateUrl: "views/dispenser.html",
@@ -41,28 +41,20 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/drug_add.html",
             controller: "DrugController"
         })
-        .when("/suppliers/all", {
+        .when("/suppliers", {
             templateUrl: "views/supplier_list.html",
-            controller: "SupplierController"
-        })
-        .when("/suppliers/add", {
-            templateUrl: "views/supplier_request_add.html",
-            controller: "SupplierController"
-        })
-        .when("/suppliers/requests", {
-            templateUrl: "views/supplier_requests.html",
             controller: "SupplierController"
         })
         .when("/patients", {
             templateUrl: "views/patients.html",
             controller: "PatientController"
         })
-        .when("/prescript/add", {
+        .when("/prescripts/add", {
             templateUrl: "views/addPrescription.html",
             controller: "PrescriptController"
         })
-        .when("/prescript/history", {
-            templateUrl: "views/prescriptionHistory.html",
+        .when("/prescripts/history", {
+            templateUrl: "views/precriptionHistory.html",
             controller: "PrescriptController"
         })
         .when("/inventory/all", {
@@ -91,6 +83,10 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
         })
         .when("/", {
             templateUrl: "views/dashboard.html"
+        }).
+        when("/sales", {
+            templateUrl: "views/sales.html",
+            controller: "SalesController"
         })
 
 
