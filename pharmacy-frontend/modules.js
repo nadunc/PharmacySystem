@@ -92,7 +92,14 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
         .when("/", {
             templateUrl: "views/dashboard.html"
         })
-
+        .when("/departments", {
+        templateUrl: "views/department.html",
+        controller: "UnitMonthlyRequestController"
+         })
+        .when("/unitReturns", {
+        templateUrl: "views/unitReturn.html",
+        controller: "UnitMonthlyRequestController"
+        })
 
         .otherwise({
             templateUrl: "404.html"
