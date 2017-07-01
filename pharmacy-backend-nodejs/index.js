@@ -13,7 +13,7 @@ require('./models/prescription.model');
 require('./models/supplier.model');
 require('./models/user.model');
 require('./models/patients.model');
-
+require('./models/bill.model');
 //require('./models/patients.model');
 
 require('./models/monthlyRequest.model');
@@ -27,7 +27,7 @@ const PrescriptionRouter = require('./routes/prescription.route');
 const SupplierRouter = require('./routes/supplier.route');
 const UserRouter = require('./routes/user.route');
 const PatientRouter = require('./routes/patients.route');
-
+const BillRouter = require('./routes/bill.route');
 //const PatientsRouter = require('./routes/patients.route');
 
 const MonthlyRequestRouter = require('./routes/monthlyRequest.route');
@@ -82,7 +82,7 @@ app.use('/prescriptions', PrescriptionRouter);
 app.use('/suppliers', SupplierRouter);
 app.use('/users', UserRouter);
 app.use('/patients', PatientRouter);
-
+app.use('/bills', BillRouter);
 //app.use('/patients',PatientsRouter);
 
 app.use('/unitMonthlyRequests', MonthlyRequestRouter);
@@ -96,3 +96,4 @@ app.listen(3000, err => {
     }
     console.log('app listening on port 3000');
 });
+
