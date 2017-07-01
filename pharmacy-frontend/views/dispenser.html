@@ -1,94 +1,55 @@
-<div ng-controller="PrescriptionController">
-
+<div ng-controller="BillController">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Prescription Info
-            <small>Dispense drugs for the patients</small>
+            Invoice
+            <small>Generate Customer Bill</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="#/prescriptions">Dispense</a></li>
-            <li class="active">Prescription</li>
+            <li class="active">Bill</li>
         </ol>
     </section>
-
-    <br>
-    <br>
-    
-   
-
-
 
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-xs-12 col-sm-10 col-md-8">
-
+            <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Bill Payment</h3>
-                    </div><!-- /.box-header -->
-
-                    <form class="form-horizontal" ng-submit="addBill(bill)">
-                        <div class="box-body">
-
-                            <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                                <h4><i class="icon fa fa-check"></i> Success!</h4>
-                                <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
-                                <!--{{ successMsg }}-->
-                            </div>
-
-                            <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                                <h4><i class="icon fa fa-ban"></i> Error!</h4>
-                                <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
-                                <!--{{ successMsg }}-->
-                            </div>
-
-
-                            <div class="form-group">
-                                <label  class="col-sm-3 text-left">Patient ID</label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control"  ng-model="prescriptions.patientID">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label  class="col-sm-3 text-left" >Precription ID</label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control"  ng-model="prescriptions.prescriptionID">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label  class="col-sm-3  text-left">Drug Description</label>
-
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" ng-model="prescriptions.description" >
-                                </div>
-                            </div>
-
-
-                           
-
+                        <h3 class="box-title">Customer Invoices</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="tableBillList" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                   <th>Bill #</th>
+                                    <th>Created Date</th>
+                                    <th>Prescription ID</th>
+                                    <th>Amount</th>
+                                    <th>Drug Info</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr ng-repeat="bill in bills" >
+                                    <td>{{$index+1}}</td>
+                                    <td>{{ bill.invoiceDate }}</td>
+                                    <td>{{ bill.prescriptionNo }}</td>
+                                    <td>{{ bill.amount}}</td>
+                                    <td>{{ bill.note}}</td>
+                                </tr>
+                            </tbody>
                             
+                        </table>
 
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-info pull-right">Confirm</button>
-                        </div>
-                        <!-- /.box-footer -->
-                    </form>
-
+                    </div>
+                    <!-- /.box-body -->
                 </div><!-- /.box -->
             </div>
         </div>
-    </section>
+    </section><!-- /.content -->
 </div>
 
 

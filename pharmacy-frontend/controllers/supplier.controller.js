@@ -1,4 +1,7 @@
-pharmacyApp.controller('SupplierController', ['$scope', '$route', '$http', 'SupplierService', function ($scope, $route, $http, SupplierService) {
+pharmacyApp.controller('SupplierController', ['$scope', '$route', '$http', 'SupplierService','DrugService', function ($scope, $route, $http, SupplierService, DrugService) {
+
+    $scope.request = {drugs:[]};
+
 
     function getSuppliers() {
         SupplierService.get().then(function (suppliers) {
@@ -6,7 +9,13 @@ pharmacyApp.controller('SupplierController', ['$scope', '$route', '$http', 'Supp
         })
     }
 
+    function getDrugs() {
+        DrugService.get().then(function (drugs) {
+            $scope.drugs = drugs;
+        })
+    }
     getSuppliers();
+    getDrugs();
 
     $scope.addSupplier = function (supplier) {
         SupplierService.add(supplier).then(function (data) {
@@ -40,4 +49,29 @@ pharmacyApp.controller('SupplierController', ['$scope', '$route', '$http', 'Supp
             }
         });
     };
+
+
+
+    $scope.addDrug = function (drug) {
+        $scope.request.drugs.push(drug);
+        drug = {};
+        hideSupplierRequestModal();
+    };
+
+    $scope.addRequest = function () {
+        alert("in");
+        var drugs = [];
+        for(var i=0; i<$scope.request.drugs.length; i++ ){
+            var drug = {drug:$scope.request.drugs[i]._id, qty:$scope.request.drugs[i].qty};
+            drugs.push(drug);
+        }
+
+        $scope.request.drugs = drugs;
+
+        SupplierService.addRequest($scope.request).then(function (request) {
+            alert(request._id);
+        });
+    };
+
+
 }]);

@@ -12,6 +12,12 @@ pharmacyApp.factory('SupplierService',['$http', function ($http) {
             return $http.put(nodeHost+'/suppliers', supplier).then(function (res) {
                 return res.data;
             });
+        },
+
+        addRequest: function (request) {
+            return $http.post(javaHost+'/suppliers/request', request).then(function (res) {
+                return res.data;
+            });
         }
 
     };
