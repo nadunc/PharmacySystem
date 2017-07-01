@@ -21,7 +21,7 @@
                         <h3 class="box-title">Edit available packages</h3>
                     </div><!-- /.box-header -->
 
-                    <form class="form-horizontal" ng-submit="">
+                    <form class="form-horizontal">
                         <div class="box-body">
 
                             <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
@@ -50,21 +50,41 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="input-request-id" class="col-sm-3 control-label">Request ID</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="input-request-id"
+                                           placeholder="Request ID" ng-model="monthlyRequest.requestId">
+                                </div>
+                            </div>
 
                             <div class="form-group">
-                                <label for="input-expiry-date" class="col-sm-3 control-label">Requested Date</label>
+                                <label for="input-requested-date" class="col-sm-3 control-label">Requested Date</label>
 
                                 <div class="col-sm-9">
                                     <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input type="text" class="form-control datepicker" id="input-expiry-date"
+                                        <input type="text" class="form-control datepicker" id="input-requested-date"
                                                placeholder="Requested Date" ng-model="monthlyRequest.requestedDate">
                                     </div>
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label for="input-issuing-date" class="col-sm-3 control-label">Issuing Date</label>
+
+                                <div class="col-sm-9">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" id="input-issuing-date"
+                                               placeholder="Issuing Date" ng-model="monthlyRequest.issueDate">
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </form>
@@ -73,6 +93,7 @@
                     <div class="box-body no-padding">
                         <div class="row">
                             <div class="col-xs-12 col-sm-8">
+                                {{ monthlyRequest }}
                                 <table class="table table-responsive table-hover">
                                     <thead>
                                     <tr>
@@ -80,6 +101,7 @@
                                         <th>Expiry Date</th>
                                         <th>Quantity</th>
                                         <th>Unit Price</th>
+                                        <!--<th>Options</th>-->
 
                                     </tr>
                                     </thead>
@@ -89,11 +111,19 @@
                                         <td>{{ requestItem.item.expiryDate }}</td>
                                         <td>{{ requestItem.qty }}</td>
                                         <td>{{ requestItem.item.drug.unitPrice }}</td>
+                                        <!--<td><button type='button' class='btn btn-default' id='viewTaskBtn'  onClick = 'viewTask'><i class='glyphicon glyphicon-pencil'></i></button>";</td>-->
+                                        <!--edit button eka imansugen balan waren :D-->
 
                                     </tr>
                                     </tbody>
 
                                 </table>
+
+                                <div class="box-footer clearfix no-border">
+                                    <button ng-click="addUnitMonthlyRequest()" class="btn btn-default pull-right">
+                                        <i class="fa fa-plus"></i> Add items
+                                    </button>
+                                </div>
 
                             </div>
 
@@ -101,7 +131,7 @@
 
                                 <div class="box">
                                     <div class="box-header">
-                                        <!--<h3 class="box-title">Data Table With Full Features</h3>-->
+                                        <h3 class="box-title">Data Table With Full Features</h3>
                                     </div><!-- /.box-header -->
 
                                     <form ng-submit="addRequestItem(requestItem)">
@@ -187,7 +217,9 @@
                                             </div>
                                         </div><!-- /.box-body -->
                                         <div class="box-footer">
-                                            <button type="submit" class="btn btn-info pull-right">Add Drug</button>
+                                            <button type="submit" class="btn btn-info pull-right">
+                                                Add Drug
+                                            </button>
                                         </div>
                                         <!-- /.box-footer -->
                                     </form>
