@@ -22,7 +22,7 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
         })
         .when("/prescriptions", {
             templateUrl: "views/prescription.html",
-            controller: "PrescriptionController"
+            controller: "PrescriptController"
         })
         .when("/prescriptions/dispense", {
             templateUrl: "views/dispenser.html",
@@ -57,12 +57,12 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/patients.html",
             controller: "PatientController"
         })
-        .when("/prescript/add", {
+        .when("/prescripts/add", {
             templateUrl: "views/addPrescription.html",
             controller: "PrescriptController"
         })
-        .when("/prescript/history", {
-            templateUrl: "views/prescriptionHistory.html",
+        .when("/prescripts/history", {
+            templateUrl: "views/precriptionHistory.html",
             controller: "PrescriptController"
         })
         .when("/inventory/all", {
