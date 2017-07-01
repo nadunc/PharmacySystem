@@ -10,7 +10,7 @@ const PrescriptionSchema = new Schema({
         type: String,
         required: true
     },
-    date: {
+    prescriptionDate: {
         type: Date,
         required: true
     },
@@ -22,16 +22,11 @@ const PrescriptionSchema = new Schema({
         type: String,
         required: true
     },
-    drug:{
-        type: String,
-        required: true
-    },
+    
     
     druglist: {
-        
-            
-
-             description: {
+       
+            description: {
                 type: String,
                 required: true
             },
@@ -55,12 +50,9 @@ const PrescriptionSchema = new Schema({
                 type: String,
                 required: true
             }
-            
 
+         
     }
-
-   
-
 
 
 
