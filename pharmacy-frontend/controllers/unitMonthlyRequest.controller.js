@@ -1,23 +1,42 @@
-pharmacyApp.controller('UnitMonthlyRequestController', ['$scope', '$route', '$http', 'UnitMonthlyRequestService', 'InventoryItemService', 'DrugService', function ($scope, $route, $http, UnitMonthlyRequestService, InventoryItemService, DrugService) {
+pharmacyApp.controller('UnitMonthlyRequestController', ['$scope', '$route', '$http', 'UnitMonthlyRequestService', 'InventoryItemService', 'DrugService', 'DepartmentService' ,
+    function ($scope, $route, $http, UnitMonthlyRequestService, InventoryItemService, DrugService, DepartmentService)
+    {
 
     $scope.selectedDrug = "";
     $scope.requestItems = [];
+    $scope.monthlyRequest = {inventoryItems:[]};
 
     function getUnitMonthlyRequest() {
-        UnitMonthlyRequestService.get().then(function (monthlyRequest) {
-            $scope.monthlyRequest = monthlyRequest;
+        UnitMonthlyRequestService.get().then(function (monthlyRequests) {
+            $scope.monthlyRequests = monthlyRequests;
         });
     }
 
     getUnitMonthlyRequest();
 
     function getDepartments() {
-        UnitMonthlyRequestService.getDepartments().then(function (departments) {
+        DepartmentService.getDepartments().then(function (departments) {
             $scope.departments = departments;
         });
     }
-
     getDepartments();
+
+        $scope.addDepartment = function (department) {
+            DepartmentService.add(department).then(function (data) {
+                if (data.success) {
+                    // $scope.errorMsg = false;
+                    // $scope.successMsg = true;
+                    $scope.department = {};
+                    getDepartments();
+
+                } else {
+                    // $scope.successMsg = false;
+                    // $scope.errorMsg = true;
+                }
+
+            })
+        };
+
 
     $scope.getAvailableInventoryItems = function getAvailableInventoryItems() {
         var drugId = $scope.selectedDrug;
@@ -34,7 +53,7 @@ pharmacyApp.controller('UnitMonthlyRequestController', ['$scope', '$route', '$ht
             });
         });
 
-    }
+    };
 
     function formatDates(obj) {
         obj.expiryDate = obj.expiryDate.substring(0, 10);
@@ -52,8 +71,14 @@ pharmacyApp.controller('UnitMonthlyRequestController', ['$scope', '$route', '$ht
 
     getDrugList();
 
-    $scope.addunitMonthlyRequest = function (monthlyRequest) {
-        UnitMonthlyRequestService.add(monthlyRequest).then(function (data) {
+    $scope.addUnitMonthlyRequest = function () {
+
+        //$scope.monthlyRequest = monthlyRequest;
+        $scope.monthlyRequest.inventoryItems = $scope.requestItems;
+
+        alert("dfdfsffd");
+
+        UnitMonthlyRequestService.add($scope.monthlyRequest).then(function (data) {
             if (data.success) {
                 $scope.errorMsg = false;
                 $scope.successMsg = true;
@@ -75,7 +100,12 @@ pharmacyApp.controller('UnitMonthlyRequestController', ['$scope', '$route', '$ht
         $scope.requestItems.push(requestItem);
 
         $scope.requestItem = {};
+        $scope.monthlyRequest.inventoryItems = $scope.requestItems;
     }
 
 
+        $scope.viewDrugs = function (requestId) {
+            $scope.viewRequest = requestId;
+            showDrugs();
+        }
 }]);
