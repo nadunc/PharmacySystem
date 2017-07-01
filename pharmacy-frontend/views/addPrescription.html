@@ -75,6 +75,15 @@
                                         <input type="text" class="form-control" id="input-drug" placeholder="drug" ng-model="prescript.druglist.drug">
                                     </div>
                                 </div>
+                                <!--<div class="form-group" ng-controller="InventoryItemController">
+                                     <label for="input-drug" class="col-sm-2 control-label">Drug</label>
+                                     <div class="col-sm-3">
+                                    <select class="form-control select2" id="input-drug-id" ng-model="prescript.druglist.drug">
+                                        <option ng-repeat="drug in drugs" value="{{ drug._id }}">{{ drug.tradeName }}
+                                        </option>
+                                    </select>
+                                     </div>
+                                </div>-->
                                 <div class="form-group">
                                     <label for="input-quantity" class="col-sm-2 control-label">quantity</label>
                                     <div class="col-xs-3">
@@ -197,15 +206,15 @@
                                     <th>Drug</th>
                                     <th>Available Qty</th>
                                     <th>Expiry Date</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="inventoryItem in inventoryItems|filter:drug1" class="{{ inventoryItem.status }}">
                                     <td>{{ inventoryItem.drug.tradeName }} <span class="text-muted" style="margin-left: 10px; font-size: 0.9em">({{ inventoryItem.drug.className }})</span></td>
-                                   <td>{{ inventoryItem.availableQty }}</td>
+                                    <td>{{ inventoryItem.availableQty }}</td>
                                     <td>{{ inventoryItem.expiryDate }}</td>
-                                    
+
                                 </tr>
                             </tbody>
                             <tfoot>
@@ -213,7 +222,7 @@
                                     <th>Drug</th>
                                     <th>Available Qty</th>
                                     <th>Expiry Date</th>
-                                    
+
                                 </tr>
                             </tfoot>
                         </table>
@@ -234,9 +243,9 @@
         format: 'yyyy-mm-dd',
         autoclose: true
     });
-
-    $(".save").click(function() {
-    $("#tabledrugListBody").empty();
-});
+    $(".select2").select2();
+    $(".save").click(function () {
+        $("#tabledrugListBody").empty();
+    });
 
 </script>

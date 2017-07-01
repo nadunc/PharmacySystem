@@ -1,4 +1,4 @@
-pharmacyApp.factory('BillerService',['$http', function ($http) {
+pharmacyApp.factory('BillService',['$http', function ($http) {
     return {
         get : function () {
             return $http.get(nodeHost+'/bills').then(function (res) {

@@ -45,5 +45,13 @@ Router.post('/', (req, res) => {
     });
 
 });
+Router.put('/', function (req, res) {
+    var patient = req.body;
+
+    PatientModel.update({nic:patient.nic}, {$set:patient}, function (err, response) {
+        res.json(response);
+    })
+
+});
 
 module.exports = Router;

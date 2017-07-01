@@ -1,7 +1,7 @@
 /**
  * Created by User PC on 5/9/2017.
  */
-pharmacyApp.controller('PrescriptController', ['$scope', '$route', '$http', 'PrescriptService', function ($scope, $route, $http, PrescriptService) {
+pharmacyApp.controller('PrescriptController', ['$scope', '$route', '$http', 'PrescriptService','InventoryItemService', function ($scope, $route, $http, PrescriptService,InventoryItemService) {
     $scope.rows = [];
     function getPrescript() {
         PrescriptService.getHistory().then(function (prescripts) {
@@ -11,6 +11,12 @@ pharmacyApp.controller('PrescriptController', ['$scope', '$route', '$http', 'Pre
 
 
     getPrescript();
+    function getInventoryItems() {
+        InventoryItemService.get().then(function (inventoryItems) {
+            $scope.inventoryItems = inventoryItems;
+        })
+    }
+    
     $scope.addRow = function () {
 
         $scope.rows.push({
@@ -49,5 +55,6 @@ pharmacyApp.controller('PrescriptController', ['$scope', '$route', '$http', 'Pre
         })
 
     };
+    
 
 }]);

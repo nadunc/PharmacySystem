@@ -26,7 +26,7 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
         })
         .when("/prescriptions/dispense", {
             templateUrl: "views/dispenser.html",
-            controller: "BillerController"
+            controller: "BillController"
         })
 
         .when("/drugs/all", {
@@ -79,6 +79,10 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
         })
         .when("/", {
             templateUrl: "views/dashboard.html"
+        }).
+        when("/sales", {
+            templateUrl: "views/sales.html",
+            controller: "SalesController"
         })
 
 

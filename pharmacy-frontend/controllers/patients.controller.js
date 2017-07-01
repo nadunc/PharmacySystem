@@ -37,4 +37,21 @@ pharmacyApp.controller('PatientController', ['$scope', '$route', '$http', 'Patie
             getPatients();
         })
     };
+    $scope.loadPatientEditor = function (patient) {
+        $scope.editingPatient = patient;
+        showPatientEditModal();
+    };
+
+    $scope.editPatient = function () {
+        PatientService.update($scope.editingPatient).then(function (res) {
+            if(res.nModified > 0){
+                $scope.errorMsg_edit = false;
+                $scope.successMsg_edit = true;
+
+            }else{
+                $scope.successMsg_edit = false;
+                $scope.errorMsg_edit = true;
+            }
+        });
+    };
 }]);

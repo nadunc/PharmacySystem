@@ -13,6 +13,12 @@ pharmacyApp.factory('PatientService',['$http', function ($http) {
                 return res.data;
             });
         },
+        update: function (patient) {
+            return $http.put(nodeHost+'/patients', patient).then(function (res) {
+                return res.data;
+            });
+        },
+
         add: patient => $http.post(nodeHost+'/patients', patient).then(response => response.data)
 
     };

@@ -16,8 +16,10 @@ require('./models/patients.model');
 require('./models/monthlyRequest.model');
 require('./models/department.model');
 require('./models/specialRequest.model');
+require('./models/bill.model');
 
 
+const BillRouter = require('./routes/bill.route');
 const DrugRouter = require('./routes/drug.route');
 const InventoryItemRouter = require('./routes/inventoryItem.route');
 const PrescriptionRouter = require('./routes/prescription.route');
@@ -81,6 +83,8 @@ app.use('/patients', PatientRouter);
 app.use('/unitMonthlyRequests', MonthlyRequestRouter);
 app.use('/departments', DepartmentsRouter);
 app.use('/specialRequests', SpecialRequestRouter);
+app.use('/bills', BillRouter);
+
 
 app.listen(3000, err => {
     if (err) {
