@@ -1,6 +1,3 @@
-/**
- * Created by User PC on 5/7/2017.
- */
 'use strict';
 
 const express = require('express');
@@ -8,25 +5,22 @@ const mongoose = require('mongoose');
 
 mongoose.set('debug', false);
 
-const PatientModel = mongoose.model('Patient');
+const PrecriptModel = mongoose.model('Prescription');
 
 const Router = express.Router();
 
 
 Router.get('/', (req, res) => {
-    PatientModel.find().then(function (patients) {
-        res.json(patients);
+    PrecriptModel.find().then(function (prescripts) {
+        res.json(prescripts);
     }).catch(function (err) {
         console.error(err);
         res.sendStatus(500);
     });
 });
-
-Router.get('/:nic', (req, res) => {
-    var nic = req.params.nic;
-
-    PatientModel.findOne({nic:nic}).then(function (patients) {
-        res.json(patients);
+Router.get('/history', (req, res) => {
+    PrecriptModel.find().then(function (prescripts) {
+        res.json(prescripts);
     }).catch(function (err) {
         console.error(err);
         res.sendStatus(500);
@@ -34,8 +28,8 @@ Router.get('/:nic', (req, res) => {
 });
 
 Router.post('/', (req, res) => {
-    const patient = new PatientModel(req.body);
-    patient.save(function (err,patient) {
+    const prescript = new PrecriptModel(req.body);
+    prescript.save(function (err,prescript) {
         if(err){
             console.error(err);
             res.json({success:false});

@@ -11,6 +11,18 @@ pharmacyApp.controller('PatientController', ['$scope', '$route', '$http', 'Patie
 
     getPatients();
 
+    /*$scope.getPatientsById = function () {
+        var nic = $scope.nic2;
+        PatientService.getById(nic).then(function (patients) {
+            console.log(patients);
+            $scope.patients = patients;
+        })
+        $scope.getPatientsById();
+    };*/
+
+    //$scope.getPatientsById();
+
+
     $scope.addPatients = function (patient) {
         PatientService.add(patient).then(function (data) {
             if(data.success){

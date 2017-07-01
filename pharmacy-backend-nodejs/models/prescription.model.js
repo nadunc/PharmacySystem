@@ -4,68 +4,51 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const PrescriptionSchema = new Schema({
+const druglistSchema = new Schema({
+    drug: {
+        type: String,
 
+    },
+    quantity: {
+        type: String,
+
+    },
+    dosage: {
+        type: String,
+    }, 
+    frequency: {
+        type: String,
+    },
+    period: {
+        type: String,
+    },
+    description: {
+        type: String,
+
+    }
+});
+const PrescriptionSchema = new Schema({
     prescriptionID: {
         type: String,
-        required: true
+
     },
     date: {
         type: Date,
-        required: true
+
     },
-    patientID:{
+    patientID: {
         type: String,
-        required: true
+
     },
     prescriberID: {
         type: String,
-        required: true
+
     },
-    drug:{
-        type: String,
-        required: true
-    },
-    
-    druglist: {
-        
-            
-
-             description: {
-                type: String,
-                required: true
-            },
-
-            dosage: {
-                type: String,
-                required: true
-            },
-
-            frequency: {
-                type: String,
-                required: true
-            },
-
-            period: {
-                type: String,
-                required: true
-            },
-
-            quantity: {
-                type: String,
-                required: true
-            }
-            
-
-    }
-
-   
-
-
-
-
+    druglist: [druglistSchema]
 
 });
+
+
 
 const Prescription = mongoose.model('Prescription', PrescriptionSchema);
 

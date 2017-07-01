@@ -24,16 +24,16 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/prescription.html",
             controller: "PrescriptionController"
         })
-    .when("/prescriptions/dispense", {
+        .when("/prescriptions/dispense", {
             templateUrl: "views/dispenser.html",
             controller: "BillerController"
         })
-        
-        .when("/drugs/all",{
+
+        .when("/drugs/all", {
             templateUrl: "views/drug_list.html",
             controller: "DrugController"
         })
-        .when("/drugs/add",{
+        .when("/drugs/add", {
             templateUrl: "views/drug_add.html",
             controller: "DrugController"
         })
@@ -45,12 +45,12 @@ pharmacyApp.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/patients.html",
             controller: "PatientController"
         })
-        .when("/prescript/add", {
+        .when("/prescripts/add", {
             templateUrl: "views/addPrescription.html",
             controller: "PrescriptController"
         })
-        .when("/prescript/history", {
-            templateUrl: "views/prescriptionHistory.html",
+        .when("/prescripts/history", {
+            templateUrl: "views/precriptionHistory.html",
             controller: "PrescriptController"
         })
         .when("/inventory/all", {

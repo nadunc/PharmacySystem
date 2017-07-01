@@ -8,7 +8,11 @@ pharmacyApp.factory('PatientService',['$http', function ($http) {
                 return res.data;
             });
         },
-
+        getById : function (nic) {
+            return $http.get(nodeHost+'/patients/'+nic).then(function (res) {
+                return res.data;
+            });
+        },
         add: patient => $http.post(nodeHost+'/patients', patient).then(response => response.data)
 
     };

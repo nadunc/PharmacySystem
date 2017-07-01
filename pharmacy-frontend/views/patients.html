@@ -36,7 +36,14 @@
                                     <h4><i class="icon fa fa-ban"></i> Error!</h4>
 
                                 </div>
+                                 <div class="form-group">
+                                    <label for="input-nic" class="control-label">NIC</label>
 
+
+                                    <input type="text" class="form-control" id="input-nic" placeholder="NIC"
+                                           ng-model="patient.nic">
+
+                                </div>
                                 <div class="form-group">
                                     <label for="input-firstname" class="control-label">First Name</label>
 
@@ -96,9 +103,9 @@
             </div>
             <div class="col-md-6">
                 <div class="input-group input-group-sm">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" ng-model="nic2">
                     <span class="input-group-btn">
-                      <button type="button" class="btn btn-info btn-flat">search</button>
+                      <button type="button" class="btn btn-info btn-flat" ng-click="getPatientsById()">search</button>
                     </span>
                 </div>
                 <p class="margin"></p>
@@ -111,7 +118,7 @@
                         <table id="tablePatientsList" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>NIC</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Phone</th>
@@ -121,8 +128,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="patient in patients">
-                                <td>{{ patient.id }}</td>
+                            <tr ng-repeat="patient in patients|filter:nic2">
+                                <td>{{ patient.nic }}</td>
                                 <td>{{ patient.firstname }}</td>
                                 <td>{{ patient.lastname }}</td>
                                 <td>{{ patient.phone }}</td>
