@@ -15,15 +15,20 @@ const MonthlyRequestSchema = new Schema({
         }
     }],
 
+    requestId :{
+        type : String,
+        required : true
+    },
+
     department: {
         type: Schema.ObjectId,
         ref: 'Department'
     },
     requestedDate: {
-        type: Schema.ObjectId,
+        type: String,
         required: String
     },
-    issuedDate: {
+    issueDate: {
         type: String,
     }
 });
