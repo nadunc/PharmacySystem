@@ -19,6 +19,15 @@ Router.get('/', (req, res) => {
     });
 });
 
+Router.get('/:drugId', (req, res) => {
+    DrugModel.findOne({_id:req.params.drugId}).then(function (drug) {
+        res.json(drug);
+    }).catch(function (err) {
+        console.error(err);
+        res.sendStatus(500);
+    });
+});
+
 Router.post('/', (req, res) => {
     const drug = new DrugModel(req.body);
     drug.save(function (err,drug) {
@@ -36,6 +45,16 @@ Router.post('/', (req, res) => {
     //     console.error(err);
     //     res.sendStatus(500);
     // });
+});
+
+
+Router.put('/', function (req, res) {
+    var drug = req.body;
+
+    DrugModel.update({_id:drug._id}, {$set:drug}, function (err, response) {
+        res.json(response);
+    })
+
 });
 
 module.exports = Router;

@@ -26,6 +26,9 @@ const UserSchema = new Schema({
     userType: {
         type: String,
         required: true
+    },
+    token:{
+        type: String,
     }
     // comments: [{
     //     type: Schema.Types.ObjectId,

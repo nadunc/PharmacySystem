@@ -22,4 +22,25 @@ pharmacyApp.controller('DrugController', ['$scope', '$route', '$http', 'DrugServ
             // getDrugs();
         })
     };
+
+
+    $scope.loadDrugEditor = function (drug) {
+        $scope.editingDrug = drug;
+        showDrugEditModal();
+    };
+
+    $scope.editDrug = function () {
+        DrugService.update($scope.editingDrug).then(function (res) {
+            if(res.nModified > 0){
+                $scope.errorMsg = false;
+                $scope.successMsg = true;
+                $scope.drug = {};
+
+            }else{
+                $scope.successMsg = false;
+                $scope.errorMsg = true;
+            }
+        });
+    };
+
 }]);

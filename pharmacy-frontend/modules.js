@@ -1,6 +1,6 @@
 'use strict';
 
-var pharmacyApp = angular.module("pharmacyApp", ["ngRoute"]);
+var pharmacyApp = angular.module("pharmacyApp", ["ngRoute","ngStorage"]);
 
 pharmacyApp.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(false).hashPrefix('');
