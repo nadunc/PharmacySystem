@@ -11,12 +11,26 @@ const Router = express.Router();
 
 
 Router.get('/', (req, res) => {
-    MonthlyRequestModel.find().then(function (monthlyRequests) {
+    MonthlyRequestModel.find().populate('department').exec().then(function (monthlyRequests) {
         res.json(monthlyRequests);
     }).catch(function (err) {
         console.error(err);
         res.sendStatus(500);
     });
 });
+
+Router.post('/', function (req, res) {
+    const request = new MonthlyRequestModel(req.body);
+    request.save(function (err, request) {
+        if(err){
+            console.error(err);
+            res.json({success : false});
+        }
+        else{
+            res.json({success: true});
+        }
+    }) ;
+});
+
 
 module.exports = Router;
