@@ -15,7 +15,7 @@ require('./models/user.model');
 require('./models/patients.model');
 require('./models/monthlyRequest.model');
 require('./models/department.model');
-require('./models/specialRequest.model');
+require('./models/unitReturn.model.js');
 require('./models/bill.model');
 
 const BillRouter = require('./routes/bill.route');
@@ -29,8 +29,7 @@ const UserRouter = require('./routes/user.route');
 const PatientRouter = require('./routes/patients.route');
 const MonthlyRequestRouter = require('./routes/monthlyRequest.route');
 const DepartmentsRouter = require('./routes/department.route');
-const SpecialRequestRouter = require('./routes/specialRequest.route');
-
+const UnitReturnRouter = require('./routes/unitReturn.route.js');
 
 const app = express();
 
@@ -81,7 +80,7 @@ app.use('/users', UserRouter);
 app.use('/patients', PatientRouter);
 app.use('/unitMonthlyRequests', MonthlyRequestRouter);
 app.use('/departments', DepartmentsRouter);
-app.use('/specialRequests', SpecialRequestRouter);
+app.use('/unitReturns', UnitReturnRouter);
 app.use('/bills', BillRouter);
 
 app.listen(3000, err => {
