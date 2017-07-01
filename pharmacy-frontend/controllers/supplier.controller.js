@@ -69,9 +69,34 @@ pharmacyApp.controller('SupplierController', ['$scope', '$route', '$http', 'Supp
         $scope.request.drugs = drugs;
 
         SupplierService.addRequest($scope.request).then(function (request) {
-            alert(request._id);
+            $scope.request = {};
         });
     };
+
+
+    function getSupplierRequests() {
+        SupplierService.getRequests().then(function (requests) {
+            $scope.requests = requests;
+
+            // for(var i=0; i<$scope.requests; i++){
+            //     for(var j=0; j<$scope.suppliers.length; j++){
+            //         if($scope.suppliers[j]._id == $scope.requests[i].supplier){
+            //             $scope.requests[i].supplier = $scope.suppliers[j];
+            //         }
+            //     }
+            //
+            //     for(var k=0; k<$scope.drugs.length; k++){
+            //         for(var k=0; k<$scope.requests[i].drugs.length; k++){
+            //             if($scope.drugs[k]._id == $scope.requests[i].drug.drug){
+            //                 $scope.requests[i].drug.drug = $scope.drugs[k];
+            //             }
+            //         }
+            //     }
+            // }
+        });
+    }
+
+    getSupplierRequests();
 
 
 }]);
