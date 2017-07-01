@@ -24,19 +24,24 @@
                             <thead>
                             <tr>
                                 <th>Depatment Name</th>
-                                <th>Phone</th>
-                                <th>Authorized Person</th>
+                                <!--<th>Phone</th>-->
+                                <!--<th>Authorized Person</th>-->
+                                <th>Request ID</th>
                                 <th>Requested Date</th>
                                 <th>Issued Date</th>
+                                <th>Options</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="department in departments">
-                                <td>{{ departmentt.deptName }}</td>
-                                <td>{{ departmentt.authorizedPerson }}</td>
-                                <td>{{ departmentt.phone}}</td>
-                                <td>{{ departmentt.requestedDate }}</td>
-                                <td>{{ departmentt.issuedDate }}</td>
+                            <tr ng-repeat="monthlyRequest in monthlyRequests">
+                                <td>{{ monthlyRequest.department.deptName }}</td>
+                                <!--<td>{{ monthlyRequest.authorizedPerson }}</td>-->
+                                <!--<td>{{ monthlyRequest.phone}}</td>-->
+                                <td>{{ monthlyRequest.requestId}}</td>
+                                <td>{{ monthlyRequest.requestedDate }}</td>
+                                <td>{{ monthlyRequest.issueDate }}</td>
+                                <td><button type='button' class='btn btn-default' id='viewTaskBtn' ng-click="viewDrugs(monthlyRequest.requestId)">
+                                    <i class='glyphicon glyphicon-pencil'></i></button> </td>
 
 
                             </tr>
@@ -44,23 +49,110 @@
                             <tfoot>
                             <tr>
                                 <th>Depatment Name</th>
-                                <th>Phone</th>
-                                <th>Authorized Person</th>
+                                <!--<th>Phone</th>-->
+                                <!--<th>Authorized Person</th>-->
+                                <th>Request ID</th>
                                 <th>Requested Date</th>
                                 <th>Issued Date</th>
                             </tr>
                             </tfoot>
                         </table>
 
+
                     </div>
                     <!-- /.box-body -->
+
+
                 </div><!-- /.box -->
             </div>
 
+            <div id="view-drug-list" class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Assigned Drugs</h4>
+                        </div>
+                        <form class="form-horizontal" ng-submit="addUnitMonthlyRequest()">
+                            <div class="modal-body">
 
+                                <div class="box-body">
+
+                                    <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h4><i class="icon fa fa-check"></i> Success!</h4>
+                                        <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
+                                        <!--{{ successMsg }}-->
+                                    </div>
+
+                                    <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h4><i class="icon fa fa-ban"></i> Error!</h4>
+                                        <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
+                                        <!--{{ successMsg }}-->
+                                    </div>
+
+                                    <div class="box-body">
+                                        <table id="tableAssignedDrug" class="table table-bordered table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Drug Name</th>
+                                                <th>Expiry Date</th>
+                                                <th>Quantity</th>
+                                                <th>Unit Price</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="requestItem in requestItems">
+                                                <td>{{ requestItem.item.drug.tradeName }}</td>
+                                                <td>{{ requestItem.item.expiryDate }}</td>
+                                                <td>{{ requestItem.qty }}</td>
+                                                <td>{{ requestItem.item.drug.unitPrice }}</td>
+
+                                            </tr>
+                                            </tbody>
+                                            <tfoot>
+                                            <tr>
+                                                <th>Depatment Name</th>
+                                                <!--<th>Phone</th>-->
+                                                <!--<th>Authorized Person</th>-->
+                                                <th>Request ID</th>
+                                                <th>Requested Date</th>
+                                                <th>Issued Date</th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+
+
+                                    </div>
+
+                                     </div>
+                                <!-- /.box-body -->
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+
+            </div>
 
         </div>
-    </section><!-- /.content -->
+<!-- /.content -->
 
 
-</div>
+<script>
+
+    function showDrugs() {
+        $('#view-drug-list').modal('show');
+    }
+</script>
