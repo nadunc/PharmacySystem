@@ -1,0 +1,257 @@
+
+  <div ng-controller="PatientController">
+
+    <section class="content-header">
+        <h1>
+           Patients
+            <small>Optional description</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+        </ol>
+    </section>
+
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-5">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Add Patients</h3>
+
+
+                        <form ng-submit="addPatients(patient)">
+                            <div class="box-body">
+
+                                <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-check"></i> Success!</h4>
+
+                                </div>
+
+                                <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-ban"></i> Error!</h4>
+
+                                </div>
+                                 <div class="form-group">
+                                    <label for="input-nic" class="control-label">NIC</label>
+
+
+                                    <input type="text" class="form-control" id="input-nic" placeholder="NIC"
+                                           ng-model="patient.nic">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-firstname" class="control-label">First Name</label>
+
+
+                                    <input type="text" class="form-control" id="input-firstname" placeholder="First Name"
+                                           ng-model="patient.firstname">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-lastname" class="control-label">Last Name</label>
+
+
+                                    <input type="text" class="form-control" id="input-lastname" placeholder="Last Name"
+                                           ng-model="patient.lastname">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input-phone" class="control-label">Phone</label>
+
+
+                                    <input type="text" class="form-control" id="input-phone" placeholder="Phone"
+                                           ng-model="patient.phone">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input-address" class="control-label">Address</label>
+
+
+                                    <textarea class="form-control" id="input-address" placeholder="Address"
+                                              ng-model="patient.address"></textarea>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input-email" class="control-label">Email</label>
+
+
+                                    <input type="email" class="form-control" id="input-email" placeholder="Email"
+                                           ng-model="patient.email">
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-info pull-right">Add Patients</button>
+                            </div>
+
+                        </form>
+
+                    </div><!-- /.box -->
+                </div>
+
+            </div>
+            <div class="col-md-7">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" ng-model="nic2">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-flat" ng-click="getPatientsById()">search</button>
+                    </span>
+                </div>
+                <p class="margin"></p>
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Patients detail</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <table id="tablePatientsList" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>NIC</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <!-- dfghj-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="patient in patients|filter:nic2">
+                                <td>{{ patient.nic }}</td>
+                                <td>{{ patient.firstname }}</td>
+                                <td>{{ patient.lastname }}</td>
+                                <td>{{ patient.phone }}</td>
+                                <td>{{ patient.address }}</td>
+                                <td>{{ patient.email }}</td>
+                                <td>
+                                    <button class="btn btn-info drug-edit-btn" ng-click="loadPatientEditor(patient)"><span
+                                            class="glyphicon glyphicon-pencil"></span></button>
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            </div>
+    </section><!-- /.content -->
+
+
+    <div id="patient-edit-modal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Edit Patient</h4>
+                </div>
+                <form class="form-horizontal" ng-submit="editPatient()">
+                    <div class="modal-body">
+
+                        <div class="box-body">
+
+                                <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-check"></i> Success!</h4>
+
+                                </div>
+
+                                <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-ban"></i> Error!</h4>
+
+                                </div>
+                                 <div class="form-group">
+                                    <label for="input-nic" class="control-label">NIC</label>
+
+
+                                    <input type="text" class="form-control" id="input-nic" placeholder="NIC"
+                                           ng-model="editingPatient.nic">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-firstname" class="control-label">First Name</label>
+
+
+                                    <input type="text" class="form-control" id="input-firstname" placeholder="First Name"
+                                           ng-model="editingPatient.firstname">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-lastname" class="control-label">Last Name</label>
+
+
+                                    <input type="text" class="form-control" id="input-lastname" placeholder="Last Name"
+                                           ng-model="editingPatient.lastname">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input-phone" class="control-label">Phone</label>
+
+
+                                    <input type="text" class="form-control" id="input-phone" placeholder="Phone"
+                                           ng-model="editingPatient.phone">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input-address" class="control-label">Address</label>
+
+
+                                    <textarea class="form-control" id="input-address" placeholder="Address"
+                                              ng-model="editingPatient.address"></textarea>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input-email" class="control-label">Email</label>
+
+
+                                    <input type="email" class="form-control" id="input-email" placeholder="Email"
+                                           ng-model="editingPatient.email">
+
+                                </div>
+
+
+                            </div>
+                        <!-- /.box-body -->
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-info pull-right">Save changes</button>
+                    </div>
+                </form>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+  </div>
+  <script>
+    function showPatientEditModal() {
+        $('#patient-edit-modal').modal('show');
+    }
+
+</script>

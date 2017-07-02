@@ -1,0 +1,251 @@
+<div>
+
+    <section class="content-header">
+        <h1>
+            Prescription
+
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+        </ol>
+    </section>
+
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-6" ng-controller="PrescriptController">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Add Prescription</h3>
+
+
+                        <form ng-submit="addPrescript(prescript)">
+                            <div class="box-body">
+
+                                <!--  <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-check"></i> Success!</h4>
+
+                                </div>
+
+                                <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-ban"></i> Error!</h4>
+
+                                </div>-->
+
+
+                                <div class="form-group">
+                                    <label for="input-id" class="control-label">Prescription ID</label>
+
+                                    <input type="text" class="form-control" id="input-id" placeholder="ID" ng-model="prescript.prescriptionID">
+
+
+                                </div>
+                                <label for="input-id" class="control-label">Date</label>
+                                <div class="input-group date">
+
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right datepicker" id="date" ng-model="prescript.date">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label for="input-firstname" class="control-label">Patient NIC</label>
+
+                                    <input type="text" class="form-control" id="input-firstname" placeholder="Patient ID" ng-model="prescript.patientID">
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-lastname" class="control-label">Prescriber ID</label>
+
+
+                                    <input type="text" class="form-control" id="input-lastname" placeholder="Prescriber ID" ng-model="prescript.prescriberID">
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="input-drug" class="col-sm-2 control-label">Drug</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="input-drug" placeholder="drug" ng-model="prescript.druglist.drug">
+                                    </div>
+                                </div>
+                                <!--<div class="form-group" ng-controller="InventoryItemController">
+                                     <label for="input-drug" class="col-sm-2 control-label">Drug</label>
+                                     <div class="col-sm-3">
+                                    <select class="form-control select2" id="input-drug-id" ng-model="prescript.druglist.drug">
+                                        <option ng-repeat="drug in drugs" value="{{ drug._id }}">{{ drug.tradeName }}
+                                        </option>
+                                    </select>
+                                     </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <label for="input-quantity" class="col-sm-2 control-label">quantity</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="input-quantity" placeholder="quantity" ng-model="prescript.druglist.quantity">
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <label for="input-dosage" class="col-sm-2 control-label">dosage</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="input-dosage" placeholder="dosage" ng-model="prescript.druglist.dosage">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-frequency" class="col-sm-2 control-label">frequency</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="input-frequency" placeholder="frequency" ng-model="prescript.druglist.frequency">
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <label for="input-period" class="col-sm-2 control-label">period</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="input-period" placeholder="period" ng-model="prescript.druglist.period">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="input-description" class="col-sm-2 control-label">Description</label>
+                                    <div class="col-xs-3">
+                                        <input type="text" class="form-control" id="input-description" placeholder="description" ng-model="prescript.druglist.description">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="box-footer">
+                                <button type="button" class="btn btn-info pull-right" ng-click="addRow()">Add</button>
+                            </div>
+
+                            <div class="box-body">
+                                <p class="margin"></p>
+                                <div class="box">
+
+                                    <div class="box-body">
+                                        <table id="tabledrugList" class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Drug</th>
+                                                    <th>Quantity</th>
+                                                    <th>Dosage</th>
+                                                    <th>Frequency</th>
+                                                    <th>Period</th>
+                                                    <th>Description</th>
+
+                                                    <!-- dfghj-->
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tabledrugListBody">
+                                                <tr ng-repeat="data in rows">
+                                                    <td>
+                                                        {{ data.drug }}
+                                                    </td>
+                                                    <td>
+                                                        {{ data.quantity }}
+                                                    </td>
+                                                    <td>
+                                                        {{ data.dosage }}
+                                                    </td>
+                                                    <td>
+                                                        {{ data.frequency }}
+                                                    </td>
+                                                    <td>
+                                                        {{ data.period }}
+                                                    </td>
+                                                    <td>
+                                                        {{ data.description }}
+                                                    </td>
+
+
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-info pull-right save">Save</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                    <!-- /.box -->
+                </div>
+
+            </div>
+            <div class="col-md-6" ng-controller="InventoryItemController">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" ng-model="drug1">
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-flat">search</button>
+                    </span>
+                </div>
+                <p class="margin"></p>
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Available druglist</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <table id="tableInventoryItemList" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Drug</th>
+                                    <th>Available Qty</th>
+                                    <th>Expiry Date</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="inventoryItem in inventoryItems|filter:drug1" class="{{ inventoryItem.status }}">
+                                    <td>{{ inventoryItem.drug.tradeName }} <span class="text-muted" style="margin-left: 10px; font-size: 0.9em">({{ inventoryItem.drug.className }})</span></td>
+                                    <td>{{ inventoryItem.availableQty }}</td>
+                                    <td>{{ inventoryItem.expiryDate }}</td>
+
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Drug</th>
+                                    <th>Available Qty</th>
+                                    <th>Expiry Date</th>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+<script>
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
+    $(".select2").select2();
+    $(".save").click(function () {
+        $("#tabledrugListBody").empty();
+    });
+
+</script>

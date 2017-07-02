@@ -1,0 +1,230 @@
+<div ng-controller="BillController">
+   
+    <section class="content-header">
+        <h1>
+            Invoice
+            <small>Generate Customer Bill</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Invoice</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-8">
+
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">New Invoice</h3>
+                    </div><!-- /.box-header -->
+
+                    <form class="form-horizontal" ng-submit="addBill(bill)">
+                        <div class="box-body">
+
+                            <div class="alert alert-success alert-dismissible auto-close-alert" ng-show="successMsg">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-check"></i> Success!</h4>
+                                <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
+                                <!--{{ successMsg }}-->
+                            </div>
+
+                            <div class="alert alert-danger alert-dismissible auto-close-alert" ng-show="errorMsg">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-ban"></i> Error!</h4>
+                                <!--<h4><i class="icon fa fa-check"></i> Alert!</h4>-->
+                                <!--{{ successMsg }}-->
+                            </div>
+
+                           
+                              <div class="form-group">
+                                <label for="input-inv-date" class="col-sm-3 control-label">Invoice Date</label>
+
+                                <div class="col-sm-6">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control datepicker" id="input-inv-date"
+                                               placeholder="Invoice Date" ng-model="bill.invoiceDate">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="input-prescription-id" class="col-sm-3 control-label">Prescription #</label>
+
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="input-prescription-id"
+                                           ng-model="bill.prescriptionNo">
+                                    
+                                </div>
+                            </div>
+
+                             <div class="form-group">
+                                <label for="input-patient-id" class="col-sm-3 control-label">Patient #</label>
+
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="input-patient-id"
+                                           ng-model="bill.patientID">
+                                    
+                                </div>
+                            </div>
+
+
+                             <div class="form-group">
+                                <label for="input-amount" class="col-sm-3 control-label">Total Amount</label>
+
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="input-amount"
+                                           ng-model="bill.amount">
+                                    
+                                </div>
+                            </div>
+                         
+                            <div class="form-group">
+                                <label for="input-remark" class="col-sm-3 control-label">Remarks</label>
+
+                                <div class="col-sm-6">
+                                    
+                                <textarea class="form-control" id="input-remark" placeholder="Enter Drug Description"
+                                       ng-model="bill.note"></textarea>
+                                    
+                                </div>
+                            </div>
+                           
+
+
+                          
+
+                              
+                            
+                            
+
+                           
+
+                           
+
+
+                       
+
+                          
+
+
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-info pull-right">Save</button>
+                        </div>
+                        <!-- /.box-footer -->
+                    </form>
+
+                </div><!-- /.box -->
+            </div>
+
+
+
+
+
+
+
+
+
+<div class="col-xs-12 col-sm-10 col-md-8">
+
+            
+                    <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Drug Stock</h3>
+                        
+                         <form class="form-inline" align = "right">
+                            <div align = "right">
+                          <label class="btn btn-info">Search </label> <label> </label> 
+                         
+                           <input  id="drugid" onkeyup="myFunction()"  type="search" class="form-control input-sm" placeholder="Enter Drug Name" aria-controls="ItemList">
+                        </div>
+                        </form>
+                      
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="ItemList" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Drug #</th>
+                                    <th>Drug</th>
+                                    <th>Unit Price (Rs.)</th>
+                                    
+                                   
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="drug in drugs ">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{ drug.tradeName }} <span class="text-muted" style="margin-left: 10px; font-size: 0.9em">({{ drug.className }})</span></td>
+                            
+                                    <td>{{drug.unitPrice}}.00 </td>
+
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+
+                 
+ 
+               
+                </div>
+                        <!-- /.box-body -->
+                        
+                       
+                    </form>
+
+                </div><!-- /.box -->
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </section><!-- /.content -->
+
+</div>
+
+<script>
+    $(".select2").select2();
+    $('.datepicker').datepicker({
+        format: 'yyyy-mm-dd',
+        autoclose: true
+    });
+</script>
+
+ 
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("drugid");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("ItemList");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>

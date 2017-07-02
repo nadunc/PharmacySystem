@@ -1,0 +1,56 @@
+<div ng-controller="BillController">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Invoice
+            <small>Generate Customer Bill</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li class="active">Bill</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h3 class="box-title">Customer Invoices</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="tableBillList" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                   <th>Bill #</th>
+                                    <th>Created Date</th>
+                                    <th>Prescription ID</th>
+                                    <th>Amount (Rs.)</th>
+                                    <th>Drug Info</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody >
+                                <tr ng-repeat="bill in bills" >
+                                    <td>{{$index+1}}</td>
+                                    <td>{{ bill.invoiceDate }}</td>
+                                    <td>{{ bill.prescriptionNo }}</td>
+                                    <td>{{ bill.amount}}.00</td>
+                                    <td>{{ bill.note}}</td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+
+                    </div>
+                    <!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+        </div>
+    </section><!-- /.content -->
+</div>
+
+
+ 
